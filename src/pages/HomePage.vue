@@ -3,13 +3,7 @@
     <HeroSection />
     <AboutSection />
     <!-- Other sections will be added here -->
-    <div id="skills" class="section">
-      <div class="container">
-        <h2 class="text-3xl font-bold text-center text-md-light-primary dark:text-md-dark-primary">
-          Skills - Coming Soon
-        </h2>
-      </div>
-    </div>
+    <SkillsSection />
     <div id="experience" class="section">
       <div class="container">
         <h2 class="text-3xl font-bold text-center text-md-light-primary dark:text-md-dark-primary">
@@ -45,5 +39,6 @@
 <script setup lang="ts">
 import HeroSection from '@/organisms/HeroSection.vue'
 import AboutSection from '@/organisms/AboutSection.vue'
+import SkillsSection from '@/organisms/SkillsSection.vue'
 import ContactSection from '@/organisms/ContactSection.vue'
 </script>
