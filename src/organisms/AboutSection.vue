@@ -29,16 +29,26 @@
               </p>
             </div>
 
-            <BaseButton
-              variant="outline"
-              size="lg"
-              tag="a"
-              :href="personalInfo.linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Full CV on LinkedIn
-            </BaseButton>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <BaseButton
+                variant="outline"
+                size="lg"
+                tag="a"
+                :href="personalInfo.linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Full CV on LinkedIn
+              </BaseButton>
+              <BaseButton
+                size="lg"
+                tag="a"
+                href="/cv-20250706.pdf"
+                download="Simone_Livraghi_CV.pdf"
+              >
+                Download CV
+              </BaseButton>
+            </div>
           </div>
 
           <!-- Statistics -->
@@ -73,7 +83,7 @@ const personalInfo: PersonalInfo = {
   title: 'AI Systems Engineer & Software Architect',
   location: 'Milan, Italy',
   email: 'simone@example.com',
-  linkedin: 'https://linkedin.com/in/simonelivraghi',
+  linkedin: 'https://www.linkedin.com/in/slivraghi',
   github: 'https://github.com/simonelivraghi',
   bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
 }
