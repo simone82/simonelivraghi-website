@@ -14,12 +14,12 @@ export const ANALYTICS_CONFIG = {
 // Personal Information
 export const PERSONAL_INFO = {
   name: 'Simone Livraghi',
-  title: 'AI Systems Engineer & Software Architect',
+  title: 'Distinguished AI Systems Engineer & Software Architect Expert',
   location: 'Milan, Italy',
   email: 'simone.livraghi@gmail.com',
   linkedin: 'https://www.linkedin.com/in/slivraghi',
   github: 'https://github.com/simone82',
-  bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
+  bio: 'Experienced AI Systems Engineer and Software Architect with 15+ years in the technology industry.',
 } as const
 
 // Google Forms Configuration
@@ -49,10 +49,20 @@ export const COOKIE_CONFIG = {
 
 // Application Configuration
 export const APP_CONFIG = {
-  title: 'Simone Livraghi - Portfolio',
-  description: 'AI Systems Engineer & Software Architect - Portfolio and Professional Experience',
+  title: 'Simone Livraghi - Distinguished AI Systems Engineer & Context Engineering Expert',
+  description:
+    'Distinguished AI Systems Engineer and recognized Context Engineering Expert. 15+ years experience in enterprise AI transformation, serving 2M+ users globally with cutting-edge AI solutions.',
   author: 'Simone Livraghi',
-  keywords: ['AI', 'Software Architecture', 'TypeScript', 'Vue.js', 'Microservices'],
+  keywords: [
+    'Context Engineering',
+    'AI Systems Engineer',
+    'Enterprise AI',
+    'AI-Augmented Development',
+    'LLM Agent Memory',
+    'Software Architecture',
+    'AI Transformation',
+    'Professional AI Consultant',
+  ],
   language: 'en',
   locale: 'en_US',
 } as const

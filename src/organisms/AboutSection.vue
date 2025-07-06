@@ -18,9 +18,9 @@
               <p
                 class="text-lg text-md-light-on-surface dark:text-md-dark-on-surface leading-relaxed"
               >
-                I'm an experienced AI Systems Engineer and Software Architect with over 10 years in
-                the technology industry. My passion lies in designing and implementing innovative
-                AI-driven solutions that solve complex business challenges.
+                I'm an experienced <strong>AI Systems Engineer</strong> and <strong>Software Architect</strong>
+                with over 15 years in the technology industry. My passion lies in designing and
+                implementing innovative AI-driven solutions that solve complex business challenges.
               </p>
 
               <p
@@ -63,7 +63,7 @@
           </div>
 
           <!-- Statistics -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
             <BaseCard
               v-for="stat in statistics"
               :key="stat.label"
@@ -104,8 +104,11 @@ const personalInfo: PersonalInfo = {
 }
 
 const statistics = [
-  { value: '10+', label: 'Years Experience' },
-  { value: '50+', label: 'Projects Delivered' },
+  { value: '15+', label: 'Years Experience' },
+  { value: '2M+', label: 'Users Served' },
+  { value: '50+', label: 'Enterprise Solutions' },
   { value: '15+', label: 'Teams Led' },
+  { value: '10+', label: 'AI Certifications' },
+  { value: '5+', label: 'Industries Served' },
 ]
 </script>

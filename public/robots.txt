@@ -1,13 +1,28 @@
+# Robots.txt for Simone Livraghi AI Engineering Portfolio
+# Website: https://www.simonelivraghi.com
+# Focus: AI Systems Engineering, Context Engineering, Professional AI Development
+
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://www.simonelivraghi.com/sitemap.xml
+# Priority pages for crawling
+Allow: /#about
+Allow: /#ai-coding
+Allow: /#skills
+Allow: /#experience
+Allow: /#projects
+Allow: /#contact
 
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+# Allow important assets
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.svg
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
 
-# Block access to build artifacts and private files
+# Block access to development and build artifacts
 Disallow: /dist/
 Disallow: /node_modules/
 Disallow: /.git/
@@ -15,3 +30,32 @@ Disallow: /src/
 Disallow: /_*
 Disallow: /*.map
 Disallow: /stats.html
+Disallow: /*.log
+Disallow: /package*.json
+Disallow: /tsconfig*.json
+Disallow: /vite.config.*
+Disallow: /tailwind.config.*
+Disallow: /.env*
+
+# SEO-friendly crawl settings
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://www.simonelivraghi.com/sitemap.xml
+
+# Special instructions for AI/ML focused search engines
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
