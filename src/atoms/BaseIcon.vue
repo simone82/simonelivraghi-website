@@ -1,8 +1,5 @@
 <template>
-  <span
-:class="iconClasses"
-:style="{ fontSize: computedSize }" role="img"
-:aria-label="ariaLabel">
+  <span :class="iconClasses" :style="{ fontSize: computedSize }" role="img" :aria-label="ariaLabel">
     {{ icon }}
   </span>
 </template>

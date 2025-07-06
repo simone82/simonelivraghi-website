@@ -61,8 +61,7 @@
         </g>
 
         <!-- Highlight for dimensionality -->
-        <circle cx="18" cy="18" r="3"
-fill="var(--md-sys-color-primary)" opacity="0.20" />
+        <circle cx="18" cy="18" r="3" fill="var(--md-sys-color-primary)" opacity="0.20" />
       </g>
 
       <!-- Dark theme elements -->
@@ -125,8 +124,7 @@ fill="var(--md-sys-color-primary)" opacity="0.20" />
         </g>
 
         <!-- Highlight for dimensionality -->
-        <circle cx="18" cy="18" r="3"
-fill="var(--md-sys-color-primary)" opacity="0.25" />
+        <circle cx="18" cy="18" r="3" fill="var(--md-sys-color-primary)" opacity="0.25" />
       </g>
     </svg>
   </div>

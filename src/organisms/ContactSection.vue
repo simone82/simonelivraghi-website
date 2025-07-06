@@ -68,10 +68,7 @@
             />
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <BaseButton
-type="submit"
-size="lg" :disabled="isSubmitting"
-class="sm:w-auto">
+              <BaseButton type="submit" size="lg" :disabled="isSubmitting" class="sm:w-auto">
                 {{ isSubmitting ? 'Sending...' : 'Send Message' }}
               </BaseButton>
 

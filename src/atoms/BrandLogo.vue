@@ -19,14 +19,10 @@
     </template>
 
     <!-- Standard single-theme logos -->
-    <img v-else :src="logoSrc" :alt="altText"
-:class="logoClasses" @error="onImageError" />
+    <img v-else :src="logoSrc" :alt="altText" :class="logoClasses" @error="onImageError" />
 
     <!-- Fallback emoji for all brands if images fail -->
-    <span
-v-if="imageError"
-:class="fallbackClasses" role="img"
-:aria-label="altText">
+    <span v-if="imageError" :class="fallbackClasses" role="img" :aria-label="altText">
       {{ BRAND_ASSETS.fallbacks[brand] }}
     </span>
   </div>

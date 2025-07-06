@@ -45,13 +45,14 @@ export default [
           },
         },
       ],
-      'vue/max-attributes-per-line': [
-        'error',
-        {
-          singleline: 3,
-          multiline: 1,
-        },
-      ],
+      // Disable Vue formatting rules that conflict with Prettier
+      'vue/max-attributes-per-line': 'off',
+      'vue/first-attribute-linebreak': 'off',
+      'vue/html-closing-bracket-newline': 'off',
+      'vue/html-closing-bracket-spacing': 'off',
+      'vue/html-indent': 'off',
+      'vue/multiline-html-element-content-newline': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
 
       // General
       'no-console': 'warn',
