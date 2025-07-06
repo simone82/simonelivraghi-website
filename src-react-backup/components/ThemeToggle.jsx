@@ -1,4 +1,4 @@
-import './ThemeToggle.css';
+import './ThemeToggle.css'
 
 const ThemeToggle = ({ theme, toggleTheme }) => {
   return (
@@ -10,7 +10,7 @@ const ThemeToggle = ({ theme, toggleTheme }) => {
     >
       {theme === 'light' ? '🌙' : '☀️'}
     </button>
-  );
-};
+  )
+}
 
-export default ThemeToggle;
+export default ThemeToggle

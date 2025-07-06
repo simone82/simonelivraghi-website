@@ -1,48 +1,52 @@
-import './Projects.css';
+import './Projects.css'
 
 const Projects = () => {
   const projects = [
     {
       title: 'AI-Powered Analytics Platform',
-      description: 'Built a real-time analytics platform using machine learning to predict user behavior and optimize business outcomes.',
+      description:
+        'Built a real-time analytics platform using machine learning to predict user behavior and optimize business outcomes.',
       technologies: ['Python', 'TensorFlow', 'React', 'AWS', 'Docker'],
       highlights: [
         'Reduced prediction latency by 70%',
         'Processed 10M+ events daily',
-        'Achieved 95% accuracy in behavior prediction'
-      ]
+        'Achieved 95% accuracy in behavior prediction',
+      ],
     },
     {
       title: 'Natural Language Processing Engine',
-      description: 'Developed a custom NLP engine for document understanding and automated information extraction.',
+      description:
+        'Developed a custom NLP engine for document understanding and automated information extraction.',
       technologies: ['PyTorch', 'BERT', 'FastAPI', 'Kubernetes', 'PostgreSQL'],
       highlights: [
         'Processed 100K+ documents monthly',
         'Multi-language support (12 languages)',
-        '98% extraction accuracy'
-      ]
+        '98% extraction accuracy',
+      ],
     },
     {
       title: 'Distributed ML Training Framework',
-      description: 'Created a framework for distributed machine learning model training across multiple cloud providers.',
+      description:
+        'Created a framework for distributed machine learning model training across multiple cloud providers.',
       technologies: ['Python', 'Ray', 'Apache Spark', 'Multi-Cloud', 'gRPC'],
       highlights: [
         'Reduced training time by 5x',
         'Seamless multi-cloud deployment',
-        'Cost optimization algorithms'
-      ]
+        'Cost optimization algorithms',
+      ],
     },
     {
       title: 'Computer Vision Quality Control System',
-      description: 'Implemented an automated quality control system using computer vision for manufacturing.',
+      description:
+        'Implemented an automated quality control system using computer vision for manufacturing.',
       technologies: ['OpenCV', 'PyTorch', 'Edge Computing', 'C++', 'MQTT'],
       highlights: [
         'Real-time processing at 60 FPS',
         '99.9% defect detection rate',
-        'Reduced manual inspection by 80%'
-      ]
-    }
-  ];
+        'Reduced manual inspection by 80%',
+      ],
+    },
+  ]
 
   return (
     <section id="projects" className="section projects-section">
@@ -73,7 +77,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

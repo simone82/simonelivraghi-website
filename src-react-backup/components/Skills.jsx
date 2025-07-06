@@ -1,39 +1,48 @@
-import './Skills.css';
+import './Skills.css'
 
 const Skills = () => {
   const skillCategories = [
     {
       title: 'AI & Machine Learning',
       skills: [
-        'TensorFlow', 'PyTorch', 'Scikit-learn', 
-        'Natural Language Processing', 'Computer Vision', 
-        'Deep Learning', 'Reinforcement Learning'
-      ]
+        'TensorFlow',
+        'PyTorch',
+        'Scikit-learn',
+        'Natural Language Processing',
+        'Computer Vision',
+        'Deep Learning',
+        'Reinforcement Learning',
+      ],
     },
     {
       title: 'Programming Languages',
-      skills: [
-        'Python', 'JavaScript/TypeScript', 'Java', 
-        'C++', 'Go', 'Rust', 'SQL'
-      ]
+      skills: ['Python', 'JavaScript/TypeScript', 'Java', 'C++', 'Go', 'Rust', 'SQL'],
     },
     {
       title: 'Cloud & DevOps',
       skills: [
-        'AWS', 'Google Cloud', 'Azure', 
-        'Docker', 'Kubernetes', 'Terraform', 
-        'CI/CD', 'Microservices'
-      ]
+        'AWS',
+        'Google Cloud',
+        'Azure',
+        'Docker',
+        'Kubernetes',
+        'Terraform',
+        'CI/CD',
+        'Microservices',
+      ],
     },
     {
       title: 'Architecture & Design',
       skills: [
-        'System Design', 'Distributed Systems', 
-        'Event-Driven Architecture', 'API Design', 
-        'Design Patterns', 'Performance Optimization'
-      ]
-    }
-  ];
+        'System Design',
+        'Distributed Systems',
+        'Event-Driven Architecture',
+        'API Design',
+        'Design Patterns',
+        'Performance Optimization',
+      ],
+    },
+  ]
 
   return (
     <section id="skills" className="section skills-section">
@@ -55,7 +64,7 @@ const Skills = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

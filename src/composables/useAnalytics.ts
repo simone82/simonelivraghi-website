@@ -14,12 +14,12 @@ declare global {
 
 export const useAnalytics = () => {
   const { analyticsAllowed } = useCookieConsent()
-  
+
   // Check if gtag is available and analytics is consented
   const isGtagAvailable = (): boolean => {
-    return typeof window !== 'undefined' && 
-           typeof window.gtag === 'function' && 
-           analyticsAllowed.value
+    return (
+      typeof window !== 'undefined' && typeof window.gtag === 'function' && analyticsAllowed.value
+    )
   }
 
   // Track page view
@@ -30,23 +30,18 @@ export const useAnalytics = () => {
       page_path: path,
       page_title: title,
       anonymize_ip: true,
-      allow_google_signals: false
+      allow_google_signals: false,
     })
   }
 
   // Track custom event
-  const trackEvent = (
-    action: string,
-    category?: string,
-    label?: string,
-    value?: number
-  ) => {
+  const trackEvent = (action: string, category?: string, label?: string, value?: number) => {
     if (!isGtagAvailable()) return
 
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
-      value: value
+      value: value,
     })
   }
 
@@ -77,6 +72,6 @@ export const useAnalytics = () => {
     trackContactFormSubmission,
     trackCVDownload,
     trackExternalLink,
-    trackSectionView
+    trackSectionView,
   }
 }

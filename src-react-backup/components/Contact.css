@@ -161,16 +161,16 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-3xl);
   }
-  
+
   .contact-info {
     padding-right: 0;
     text-align: center;
   }
-  
+
   .contact-details {
     align-items: center;
   }
-  
+
   .contact-item {
     justify-content: center;
   }
@@ -180,19 +180,19 @@
   .contact-form {
     padding: var(--spacing-xl);
   }
-  
+
   .contact-subtitle {
     font-size: 1.5rem;
   }
-  
+
   .contact-description {
     font-size: 1rem;
   }
-  
+
   .form-input {
     padding: var(--spacing-sm) var(--spacing-md);
   }
-  
+
   .submit-button {
     padding: var(--spacing-sm) var(--spacing-xl);
   }

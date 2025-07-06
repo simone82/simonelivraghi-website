@@ -103,15 +103,15 @@
   .experience-timeline::before {
     display: none;
   }
-  
+
   .experience-item {
     padding-left: 0;
   }
-  
+
   .experience-item::before {
     display: none;
   }
-  
+
   .experience-header {
     flex-direction: column;
     align-items: flex-start;

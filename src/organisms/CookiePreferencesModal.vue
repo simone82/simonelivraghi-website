@@ -4,24 +4,33 @@
       <div class="modal" @click.stop>
         <div class="modal__header">
           <h2 class="modal__title">Cookie Preferences</h2>
-          <button @click="$emit('close')" class="modal__close" aria-label="Close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <button class="modal__close" aria-label="Close" @click="$emit('close')">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <path d="M18 6L6 18M6 6l12 12" />
             </svg>
           </button>
         </div>
-        
+
         <div class="modal__body">
           <p class="modal__description">
-            Manage your cookie preferences below. You can enable or disable different types of cookies based on your preferences.
+            Manage your cookie preferences below. You can enable or disable different types of
+            cookies based on your preferences.
           </p>
-          
+
           <div class="cookie-category">
             <div class="cookie-category__header">
               <div class="cookie-category__info">
                 <h3 class="cookie-category__title">Necessary Cookies</h3>
                 <p class="cookie-category__description">
-                  These cookies are essential for the website to function properly. They cannot be disabled.
+                  These cookies are essential for the website to function properly. They cannot be
+                  disabled.
                 </p>
               </div>
               <div class="toggle toggle--disabled">
@@ -30,70 +39,65 @@
               </div>
             </div>
           </div>
-          
+
           <div class="cookie-category">
             <div class="cookie-category__header">
               <div class="cookie-category__info">
                 <h3 class="cookie-category__title">Analytics Cookies</h3>
                 <p class="cookie-category__description">
-                  These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.
+                  These cookies help us understand how visitors interact with our website by
+                  collecting and reporting information anonymously.
                 </p>
               </div>
               <div class="toggle">
-                <input 
-                  type="checkbox" 
-                  v-model="localPreferences.analytics"
-                  id="analytics-toggle"
-                />
+                <input id="analytics-toggle" v-model="localPreferences.analytics" type="checkbox" />
                 <label for="analytics-toggle" class="toggle__slider"></label>
               </div>
             </div>
           </div>
-          
+
           <div class="cookie-category">
             <div class="cookie-category__header">
               <div class="cookie-category__info">
                 <h3 class="cookie-category__title">Marketing Cookies</h3>
                 <p class="cookie-category__description">
-                  These cookies are used to track visitors across websites to display relevant advertisements.
+                  These cookies are used to track visitors across websites to display relevant
+                  advertisements.
                 </p>
               </div>
               <div class="toggle">
-                <input 
-                  type="checkbox" 
-                  v-model="localPreferences.marketing"
-                  id="marketing-toggle"
-                />
+                <input id="marketing-toggle" v-model="localPreferences.marketing" type="checkbox" />
                 <label for="marketing-toggle" class="toggle__slider"></label>
               </div>
             </div>
           </div>
-          
+
           <div class="cookie-category">
             <div class="cookie-category__header">
               <div class="cookie-category__info">
                 <h3 class="cookie-category__title">Preference Cookies</h3>
                 <p class="cookie-category__description">
-                  These cookies remember your preferences and choices to provide a personalized experience.
+                  These cookies remember your preferences and choices to provide a personalized
+                  experience.
                 </p>
               </div>
               <div class="toggle">
-                <input 
-                  type="checkbox" 
-                  v-model="localPreferences.preferences"
+                <input
                   id="preferences-toggle"
+                  v-model="localPreferences.preferences"
+                  type="checkbox"
                 />
                 <label for="preferences-toggle" class="toggle__slider"></label>
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="modal__footer">
-          <button @click="$emit('close')" class="modal__button modal__button--secondary">
+          <button class="modal__button modal__button--secondary" @click="$emit('close')">
             Cancel
           </button>
-          <button @click="handleSave" class="modal__button modal__button--primary">
+          <button class="modal__button modal__button--primary" @click="handleSave">
             Save Preferences
           </button>
         </div>
@@ -118,7 +122,7 @@ const localPreferences = ref<CookiePreferences>({
   necessary: true,
   analytics: preferences.value.analytics,
   marketing: preferences.value.marketing,
-  preferences: preferences.value.preferences
+  preferences: preferences.value.preferences,
 })
 
 const handleOverlayClick = (event: MouseEvent) => {
@@ -262,7 +266,7 @@ const handleSave = () => {
 
 .toggle__slider::before {
   position: absolute;
-  content: "";
+  content: '';
   height: 16px;
   width: 16px;
   left: 4px;

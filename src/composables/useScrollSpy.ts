@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, readonly } from 'vue'
 
 export function useScrollSpy(sectionIds: string[], offset = 100) {
   const activeSection = ref<string>('')
@@ -6,7 +6,7 @@ export function useScrollSpy(sectionIds: string[], offset = 100) {
 
   const updateActiveSection = () => {
     const scrollPosition = window.scrollY + offset
-    
+
     // Update scroll state
     isScrolled.value = window.scrollY > 50
 
@@ -26,7 +26,7 @@ export function useScrollSpy(sectionIds: string[], offset = 100) {
       const sectionTop = section.offsetTop - 80 // Account for fixed navigation
       window.scrollTo({
         top: sectionTop,
-        behavior: 'smooth'
+        behavior: 'smooth',
       })
     }
   }
@@ -45,8 +45,4 @@ export function useScrollSpy(sectionIds: string[], offset = 100) {
     isScrolled: readonly(isScrolled),
     scrollToSection,
   }
-}
-
-function readonly<T>(ref: any): Readonly<T> {
-  return ref
 }

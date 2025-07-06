@@ -1,4 +1,4 @@
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, readonly } from 'vue'
 import type { Theme } from '@/types'
 
 const theme = ref<Theme>('auto')
@@ -18,14 +18,14 @@ export function useTheme() {
 
   const applyTheme = () => {
     const root = document.documentElement
-    
+
     if (theme.value === 'auto') {
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       isDark.value = systemDark
     } else {
       isDark.value = theme.value === 'dark'
     }
-    
+
     if (isDark.value) {
       root.classList.add('dark')
       root.setAttribute('data-theme', 'dark')
@@ -68,8 +68,4 @@ export function useTheme() {
     setTheme,
     toggleTheme,
   }
-}
-
-function readonly<T>(ref: any): Readonly<T> {
-  return ref
 }

@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import { useAnalytics } from '@/composables/useAnalytics'
-import { useCookieConsent } from '@/composables/useCookieConsent'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,7 +11,7 @@ const router = createRouter({
       component: HomePage,
     },
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, _from, savedPosition) {
     if (to.hash) {
       return {
         el: to.hash,
@@ -30,12 +29,12 @@ const router = createRouter({
 // Track initial page view when router is ready
 let initialPageTracked = false
 
-router.afterEach((to) => {
+router.afterEach(to => {
   // Always attempt to track, the analytics composable will check consent
   const { trackPageView } = useAnalytics()
   const pagePath = to.fullPath
-  const pageTitle = to.meta.title as string || document.title
-  
+  const pageTitle = (to.meta.title as string) || document.title
+
   // Track initial page view
   if (!initialPageTracked) {
     initialPageTracked = true

@@ -5,39 +5,36 @@
         <div class="cookie-banner__content">
           <h3 class="cookie-banner__title">Cookie Consent</h3>
           <p class="cookie-banner__text">
-            We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
-            By clicking "Accept All", you consent to our use of cookies. You can manage your preferences or 
-            learn more in our 
+            We use cookies to enhance your browsing experience, analyze site traffic, and
+            personalize content. By clicking "Accept All", you consent to our use of cookies. You
+            can manage your preferences or learn more in our
             <a href="/privacy-policy" class="cookie-banner__link">Privacy Policy</a>.
           </p>
         </div>
-        
+
         <div class="cookie-banner__actions">
-          <button 
-            @click="acceptNecessary"
+          <button
             class="cookie-banner__button cookie-banner__button--secondary"
+            @click="acceptNecessary"
           >
             Necessary Only
           </button>
-          <button 
-            @click="openPreferences"
+          <button
             class="cookie-banner__button cookie-banner__button--secondary"
+            @click="openPreferences"
           >
             Preferences
           </button>
-          <button 
-            @click="acceptAll"
-            class="cookie-banner__button cookie-banner__button--primary"
-          >
+          <button class="cookie-banner__button cookie-banner__button--primary" @click="acceptAll">
             Accept All
           </button>
         </div>
       </div>
     </div>
   </Transition>
-  
+
   <!-- Cookie Preferences Modal -->
-  <CookiePreferencesModal 
+  <CookiePreferencesModal
     v-if="showPreferences"
     @close="closePreferences"
     @save="savePreferences"
@@ -55,7 +52,7 @@ const {
   acceptNecessary,
   openPreferences,
   closePreferences,
-  savePreferences
+  savePreferences,
 } = useCookieConsent()
 </script>
 
@@ -170,7 +167,9 @@ const {
 /* Transition */
 .slide-up-enter-active,
 .slide-up-leave-active {
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
 }
 
 .slide-up-enter-from {

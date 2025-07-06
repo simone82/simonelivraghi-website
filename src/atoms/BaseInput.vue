@@ -1,6 +1,10 @@
 <template>
   <div class="base-input">
-    <label v-if="label" :for="id" class="block text-sm font-medium text-md-light-on-surface dark:text-md-dark-on-surface mb-2">
+    <label
+      v-if="label"
+      :for="id"
+      class="block text-sm font-medium text-md-light-on-surface dark:text-md-dark-on-surface mb-2"
+    >
       {{ label }}
       <span v-if="required" class="text-md-light-error dark:text-md-dark-error">*</span>
     </label>
@@ -12,10 +16,10 @@
       :disabled="disabled"
       :class="inputClasses"
       :value="modelValue"
+      v-bind="$attrs"
       @input="updateValue"
       @blur="handleBlur"
       @focus="handleFocus"
-      v-bind="$attrs"
     />
     <div v-if="error" class="mt-1 text-sm text-md-light-error dark:text-md-dark-error">
       {{ error }}
@@ -52,20 +56,20 @@ const emit = defineEmits<{
 const isFocused = ref(false)
 
 const inputClasses = computed(() => {
-  const baseClasses = 'block w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-0'
-  
+  const baseClasses =
+    'block w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-0'
+
   const stateClasses = props.error
     ? 'border-md-light-error dark:border-md-dark-error bg-md-light-error-container/10 dark:bg-md-dark-error-container/10'
     : isFocused.value
       ? 'border-md-light-primary dark:border-md-dark-primary bg-md-light-surface dark:bg-md-dark-surface'
       : 'border-md-light-outline dark:border-md-dark-outline bg-md-light-surface dark:bg-md-dark-surface hover:border-md-light-outline-variant dark:hover:border-md-dark-outline-variant'
-  
-  const textClasses = 'text-md-light-on-surface dark:text-md-dark-on-surface placeholder-md-light-on-surface-variant dark:placeholder-md-dark-on-surface-variant'
-  
-  const disabledClasses = props.disabled
-    ? 'opacity-50 cursor-not-allowed'
-    : ''
-  
+
+  const textClasses =
+    'text-md-light-on-surface dark:text-md-dark-on-surface placeholder-md-light-on-surface-variant dark:placeholder-md-dark-on-surface-variant'
+
+  const disabledClasses = props.disabled ? 'opacity-50 cursor-not-allowed' : ''
+
   return [baseClasses, stateClasses, textClasses, disabledClasses].join(' ')
 })
 

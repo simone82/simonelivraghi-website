@@ -109,13 +109,13 @@
   .certifications-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cert-header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-xs);
   }
-  
+
   .cert-date {
     font-size: 0.75rem;
   }

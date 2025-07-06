@@ -10,6 +10,6 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ['www.simonelivraghi.com']
-  }
+    allowedHosts: ['www.simonelivraghi.com'],
+  },
 })

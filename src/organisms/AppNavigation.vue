@@ -28,13 +28,10 @@
           variant="ghost"
           size="sm"
           class="md:hidden"
-          @click="toggleMobileMenu"
           :aria-label="mobileMenuLabel"
+          @click="toggleMobileMenu"
         >
-          <BaseIcon
-            :icon="mobileMenuOpen ? '✕' : '☰'"
-            size="lg"
-          />
+          <BaseIcon :icon="mobileMenuOpen ? '✕' : '☰'" size="lg" />
         </BaseButton>
       </div>
 
@@ -86,11 +83,12 @@ const mobileMenuOpen = ref(false)
 
 const headerClasses = computed(() => {
   const baseClasses = 'fixed top-0 left-0 right-0 z-40 transition-all duration-300'
-  const backgroundClasses = (isScrolled.value || mobileMenuOpen.value)
-    ? 'bg-md-light-surface/95 dark:bg-md-dark-surface/95 backdrop-blur-md shadow-md border-b border-md-light-outline-variant dark:border-md-dark-outline-variant'
-    : 'bg-transparent'
+  const backgroundClasses =
+    isScrolled.value || mobileMenuOpen.value
+      ? 'bg-md-light-surface/95 dark:bg-md-dark-surface/95 backdrop-blur-md shadow-md border-b border-md-light-outline-variant dark:border-md-dark-outline-variant'
+      : 'bg-transparent'
   const paddingClasses = isScrolled.value ? 'py-3' : 'py-6'
-  
+
   return [baseClasses, backgroundClasses, paddingClasses].join(' ')
 })
 

@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="min-h-screen">
     <AppNavigation />
-    
+
     <main>
       <RouterView />
     </main>
-    
+
     <ThemeToggle />
     <CookieConsentBanner />
   </div>

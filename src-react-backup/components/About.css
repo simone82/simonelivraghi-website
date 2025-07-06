@@ -62,11 +62,11 @@
   .section-title {
     font-size: 2rem;
   }
-  
+
   .about-text p {
     font-size: 1rem;
   }
-  
+
   .about-highlights {
     grid-template-columns: 1fr;
   }

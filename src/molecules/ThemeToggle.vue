@@ -7,11 +7,7 @@
     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg backdrop-blur-sm"
     @click="toggleTheme"
   >
-    <BaseIcon
-      :icon="themeIcon"
-      size="lg"
-      aria-hidden="true"
-    />
+    <BaseIcon :icon="themeIcon" size="lg" aria-hidden="true" />
   </BaseButton>
 </template>
 

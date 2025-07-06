@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
     font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
   }
-  
+
   body {
     @apply bg-md-light-background text-md-light-on-background;
     @apply dark:bg-md-dark-background dark:text-md-dark-on-background;
@@ -16,7 +16,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Focus styles for accessibility */
   *:focus {
     @apply outline-2 outline-offset-2 outline-md-light-primary;
@@ -28,11 +28,11 @@
   .section {
     @apply min-h-screen flex items-center py-16 md:py-24;
   }
-  
+
   .container {
     @apply w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .btn-primary {
     @apply bg-md-light-primary text-md-light-on-primary;
     @apply dark:bg-md-dark-primary dark:text-md-dark-on-primary;
@@ -43,7 +43,7 @@
     @apply focus:ring-2 focus:ring-offset-2 focus:ring-md-light-primary;
     @apply dark:focus:ring-md-dark-primary;
   }
-  
+
   .btn-secondary {
     @apply bg-md-light-secondary text-md-light-on-secondary;
     @apply dark:bg-md-dark-secondary dark:text-md-dark-on-secondary;
@@ -52,7 +52,7 @@
     @apply dark:hover:bg-md-dark-secondary-container dark:hover:text-md-dark-on-secondary-container;
     @apply transition-all duration-200;
   }
-  
+
   .card {
     @apply bg-md-light-surface-container text-md-light-on-surface;
     @apply dark:bg-md-dark-surface-container dark:text-md-dark-on-surface;
@@ -61,7 +61,7 @@
     @apply dark:border-md-dark-outline-variant;
     @apply transition-all duration-200;
   }
-  
+
   .card:hover {
     @apply bg-md-light-surface-container-high;
     @apply dark:bg-md-dark-surface-container-high;

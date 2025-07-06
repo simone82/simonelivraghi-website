@@ -1,6 +1,6 @@
 <template>
   <div :class="cardClasses">
-    <slot />
+    <slot></slot>
   </div>
 </template>
 
@@ -21,22 +21,20 @@ const props = withDefaults(defineProps<Props>(), {
 
 const cardClasses = computed(() => {
   const baseClasses = 'card'
-  
+
   const variantClasses = {
     default: '',
     elevated: 'shadow-xl',
-    outlined: 'border-2 border-md-light-outline dark:border-md-dark-outline'
+    outlined: 'border-2 border-md-light-outline dark:border-md-dark-outline',
   }
-  
+
   const interactionClasses = [
-    props.hover ? 'hover:shadow-xl hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high' : '',
-    props.clickable ? 'cursor-pointer' : ''
+    props.hover
+      ? 'hover:shadow-xl hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high'
+      : '',
+    props.clickable ? 'cursor-pointer' : '',
   ].filter(Boolean)
-  
-  return [
-    baseClasses,
-    variantClasses[props.variant],
-    ...interactionClasses
-  ].join(' ')
+
+  return [baseClasses, variantClasses[props.variant], ...interactionClasses].join(' ')
 })
 </script>

@@ -93,11 +93,11 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
-  
+
   .project-card {
     padding: var(--spacing-xl);
   }
-  
+
   .project-title {
     font-size: 1.25rem;
   }

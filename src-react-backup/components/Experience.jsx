@@ -1,4 +1,4 @@
-import './Experience.css';
+import './Experience.css'
 
 const Experience = () => {
   const experiences = [
@@ -6,36 +6,39 @@ const Experience = () => {
       title: 'Senior AI Systems Architect',
       company: 'Tech Innovation Labs',
       period: '2021 - Present',
-      description: 'Leading the design and implementation of enterprise-scale AI solutions, managing a team of 12 engineers, and driving architectural decisions for ML platforms.',
+      description:
+        'Leading the design and implementation of enterprise-scale AI solutions, managing a team of 12 engineers, and driving architectural decisions for ML platforms.',
       achievements: [
         'Reduced model inference time by 70% through optimization',
         'Led migration to cloud-native architecture saving $2M annually',
-        'Implemented MLOps pipeline serving 100M+ predictions daily'
-      ]
+        'Implemented MLOps pipeline serving 100M+ predictions daily',
+      ],
     },
     {
       title: 'Machine Learning Engineer',
       company: 'AI Startup Inc',
       period: '2018 - 2021',
-      description: 'Developed and deployed production ML models for NLP and computer vision applications, collaborated with cross-functional teams on product features.',
+      description:
+        'Developed and deployed production ML models for NLP and computer vision applications, collaborated with cross-functional teams on product features.',
       achievements: [
         'Built recommendation engine increasing user engagement by 45%',
         'Developed custom NLP pipeline for sentiment analysis',
-        'Optimized model training reducing costs by 60%'
-      ]
+        'Optimized model training reducing costs by 60%',
+      ],
     },
     {
       title: 'Software Engineer',
       company: 'Enterprise Solutions Corp',
       period: '2015 - 2018',
-      description: 'Full-stack development of enterprise applications, introduced AI capabilities to legacy systems, mentored junior developers.',
+      description:
+        'Full-stack development of enterprise applications, introduced AI capabilities to legacy systems, mentored junior developers.',
       achievements: [
         'Migrated monolithic application to microservices',
         'Improved system performance by 3x through optimization',
-        'Led adoption of CI/CD practices across teams'
-      ]
-    }
-  ];
+        'Led adoption of CI/CD practices across teams',
+      ],
+    },
+  ]
 
   return (
     <section id="experience" className="section experience-section">
@@ -59,9 +62,9 @@ const Experience = () => {
           ))}
         </div>
         <div className="cv-link">
-          <a 
-            href="https://linkedin.com/in/simonelivraghi" 
-            target="_blank" 
+          <a
+            href="https://linkedin.com/in/simonelivraghi"
+            target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
@@ -70,7 +73,7 @@ const Experience = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

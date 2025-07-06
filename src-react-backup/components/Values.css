@@ -126,21 +126,21 @@
   .subsection-title {
     font-size: 1.5rem;
   }
-  
+
   .values-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
-  
+
   .value-icon {
     font-size: 2.5rem;
   }
-  
+
   .philosophy-quote {
     font-size: 1rem;
     padding: var(--spacing-xl);
   }
-  
+
   .interest-tag {
     font-size: 0.875rem;
     padding: var(--spacing-xs) var(--spacing-md);

@@ -1,12 +1,16 @@
 <template>
   <section id="home" class="section relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-md-light-primary/5 to-md-light-secondary/5 dark:from-md-dark-primary/5 dark:to-md-dark-secondary/5"></div>
-    
+    <div
+      class="absolute inset-0 bg-gradient-to-br from-md-light-primary/5 to-md-light-secondary/5 dark:from-md-dark-primary/5 dark:to-md-dark-secondary/5"
+    ></div>
+
     <div class="container relative z-10">
       <div class="text-center max-w-4xl mx-auto">
         <!-- Greeting -->
         <div class="animate-fade-in">
-          <p class="text-lg md:text-xl text-md-light-primary dark:text-md-dark-primary font-medium mb-4">
+          <p
+            class="text-lg md:text-xl text-md-light-primary dark:text-md-dark-primary font-medium mb-4"
+          >
             Hello, I'm
           </p>
         </div>
@@ -14,7 +18,9 @@
         <!-- Name -->
         <div class="animate-slide-up">
           <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-md-light-primary to-md-light-primary-container dark:from-md-dark-primary dark:to-md-dark-primary-container bg-clip-text text-transparent">
+            <span
+              class="bg-gradient-to-r from-md-light-primary to-md-light-primary-container dark:from-md-dark-primary dark:to-md-dark-primary-container bg-clip-text text-transparent"
+            >
               {{ personalInfo.name }}
             </span>
           </h1>
@@ -22,14 +28,18 @@
 
         <!-- Title -->
         <div class="animate-slide-up delay-100">
-          <p class="text-xl md:text-2xl lg:text-3xl font-medium text-md-light-on-surface dark:text-md-dark-on-surface mb-4">
+          <p
+            class="text-xl md:text-2xl lg:text-3xl font-medium text-md-light-on-surface dark:text-md-dark-on-surface mb-4"
+          >
             {{ personalInfo.title }}
           </p>
         </div>
 
         <!-- Location -->
         <div class="animate-slide-up delay-200">
-          <p class="text-lg md:text-xl text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant mb-8">
+          <p
+            class="text-lg md:text-xl text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant mb-8"
+          >
             📍 {{ personalInfo.location }}
           </p>
         </div>
@@ -37,18 +47,14 @@
         <!-- Call to Action Buttons -->
         <div class="animate-slide-up delay-300">
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <BaseButton
-              size="lg"
-              @click="scrollToContact"
-              class="w-full sm:w-auto"
-            >
+            <BaseButton size="lg" class="w-full sm:w-auto" @click="scrollToContact">
               Get in Touch
             </BaseButton>
             <BaseButton
               variant="outline"
               size="lg"
-              @click="scrollToProjects"
               class="w-full sm:w-auto"
+              @click="scrollToProjects"
             >
               View My Work
             </BaseButton>

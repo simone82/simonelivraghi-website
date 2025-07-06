@@ -1,4 +1,4 @@
-import './About.css';
+import './About.css'
 
 const About = () => {
   return (
@@ -8,22 +8,21 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm an experienced AI Systems Engineer and Software Architect with over 10 years 
-              in the technology industry. My passion lies in designing and implementing 
-              innovative AI-driven solutions that solve complex business challenges.
+              I'm an experienced AI Systems Engineer and Software Architect with over 10 years in
+              the technology industry. My passion lies in designing and implementing innovative
+              AI-driven solutions that solve complex business challenges.
             </p>
             <p>
-              Throughout my career, I've led cross-functional teams, architected scalable 
-              systems, and delivered cutting-edge AI applications across various industries. 
-              My expertise spans from low-level system design to high-level architecture, 
-              with a particular focus on machine learning, natural language processing, 
-              and cloud-native applications.
+              Throughout my career, I've led cross-functional teams, architected scalable systems,
+              and delivered cutting-edge AI applications across various industries. My expertise
+              spans from low-level system design to high-level architecture, with a particular focus
+              on machine learning, natural language processing, and cloud-native applications.
             </p>
             <p>
-              I believe in continuous learning and staying at the forefront of technological 
-              advancement. When I'm not coding or architecting systems, you'll find me 
-              exploring the latest AI research papers, contributing to open-source projects, 
-              or mentoring aspiring engineers.
+              I believe in continuous learning and staying at the forefront of technological
+              advancement. When I'm not coding or architecting systems, you'll find me exploring the
+              latest AI research papers, contributing to open-source projects, or mentoring aspiring
+              engineers.
             </p>
           </div>
           <div className="about-highlights">
@@ -43,7 +42,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

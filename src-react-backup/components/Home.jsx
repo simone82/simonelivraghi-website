@@ -1,4 +1,4 @@
-import './Home.css';
+import './Home.css'
 
 const Home = () => {
   return (
@@ -9,12 +9,8 @@ const Home = () => {
             <span className="greeting">Hello, I'm</span>
             <span className="name">Simone Livraghi</span>
           </h1>
-          <p className="home-subtitle">
-            AI Systems Engineer & Software Architect
-          </p>
-          <p className="home-location">
-            Based in Milan, Italy
-          </p>
+          <p className="home-subtitle">AI Systems Engineer & Software Architect</p>
+          <p className="home-location">Based in Milan, Italy</p>
           <div className="home-cta">
             <a href="#contact" className="btn btn-primary">
               Get in Touch
@@ -24,17 +20,17 @@ const Home = () => {
             </a>
           </div>
           <div className="home-links">
-            <a 
-              href="https://linkedin.com/in/simonelivraghi" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/simonelivraghi"
+              target="_blank"
               rel="noopener noreferrer"
               aria-label="View my LinkedIn profile"
             >
               LinkedIn
             </a>
-            <a 
-              href="https://github.com/simonelivraghi" 
-              target="_blank" 
+            <a
+              href="https://github.com/simonelivraghi"
+              target="_blank"
               rel="noopener noreferrer"
               aria-label="View my GitHub profile"
             >
@@ -44,7 +40,7 @@ const Home = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
