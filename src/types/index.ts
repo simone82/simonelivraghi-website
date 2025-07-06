@@ -1,0 +1,78 @@
+// Base types for the application
+export type Theme = 'light' | 'dark' | 'auto'
+
+export interface NavigationItem {
+  id: string
+  label: string
+  href: string
+}
+
+export interface PersonalInfo {
+  name: string
+  title: string
+  location: string
+  email: string
+  linkedin: string
+  github: string
+  bio: string
+}
+
+export interface Skill {
+  name: string
+  category: string
+  level?: number
+}
+
+export interface SkillCategory {
+  title: string
+  skills: string[]
+}
+
+export interface Experience {
+  title: string
+  company: string
+  period: string
+  description: string
+  achievements: string[]
+  technologies?: string[]
+}
+
+export interface Project {
+  title: string
+  description: string
+  technologies: string[]
+  achievements: string[]
+  link?: string
+  github?: string
+  image?: string
+}
+
+export interface Certification {
+  name: string
+  issuer: string
+  year: string
+  description: string
+  credentialId?: string
+  verifyLink?: string
+}
+
+export interface Value {
+  title: string
+  description: string
+  icon: string
+}
+
+export interface ContactFormData {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
+export interface SeoMeta {
+  title: string
+  description: string
+  keywords?: string[]
+  ogImage?: string
+  canonicalUrl?: string
+}
