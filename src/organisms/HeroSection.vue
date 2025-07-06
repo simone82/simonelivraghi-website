@@ -91,10 +91,10 @@
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
-      <BaseIcon
-        icon="⬇️"
-        size="lg"
-        class="text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant"
+      <ScrollIndicator 
+        size="xl" 
+        @click="scrollToAbout"
+        aria-label="Scroll down to learn more"
       />
     </div>
   </section>
@@ -104,6 +104,7 @@
 import BaseButton from '@/atoms/BaseButton.vue'
 import BaseIcon from '@/atoms/BaseIcon.vue'
 import BrandLogo from '@/atoms/BrandLogo.vue'
+import ScrollIndicator from '@/atoms/ScrollIndicator.vue'
 import { useScrollSpy } from '@/composables/useScrollSpy'
 import type { PersonalInfo } from '@/types'
 
@@ -122,6 +123,7 @@ const { scrollToSection } = useScrollSpy([])
 
 const scrollToContact = () => scrollToSection('contact')
 const scrollToProjects = () => scrollToSection('projects')
+const scrollToAbout = () => scrollToSection('about')
 </script>
 
 <style scoped>

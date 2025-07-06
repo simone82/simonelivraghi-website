@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <!-- Material Design 3 surface container gradient for light theme -->
+    <radialGradient id="lightSurfaceGradient" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#006A68" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#006A68" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#006A68" stop-opacity="0.03"/>
+    </radialGradient>
+    
+    <!-- Material Design 3 surface container gradient for dark theme -->
+    <radialGradient id="darkSurfaceGradient" cx="0.3" cy="0.3" r="0.8">
+      <stop offset="0%" stop-color="#57D9D7" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#57D9D7" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#57D9D7" stop-opacity="0.03"/>
+    </radialGradient>
+    
+    <!-- Enhanced shadow for better depth -->
+    <filter id="elevationShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="4" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+  
+  <!-- Light theme elements (default) -->
+  <g class="light-theme">
+    <!-- Background surface with MD3 light theme -->
+    <circle 
+      cx="24" 
+      cy="24" 
+      r="20" 
+      fill="url(#lightSurfaceGradient)"
+      filter="url(#elevationShadow)"
+    />
+    
+    <!-- Outer ring for elevation in light theme -->
+    <circle 
+      cx="24" 
+      cy="24" 
+      r="19" 
+      fill="none" 
+      stroke="#006A68" 
+      stroke-width="0.5" 
+      opacity="0.16"
+    />
+    
+    <!-- Main directional indicator for light theme -->
+    <g transform="translate(24, 24)">
+      <!-- Primary arrow -->
+      <path 
+        d="M0 -8 L0 6 M-5 1 L0 6 L5 1" 
+        fill="none" 
+        stroke="#006A68" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.87"
+      />
+      
+      <!-- Secondary arrow for motion -->
+      <path 
+        d="M-4 -2 L0 2 L4 -2" 
+        fill="none" 
+        stroke="#006A68" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.54"
+      />
+      
+      <!-- Tertiary arrow for depth -->
+      <path 
+        d="M-3 -6 L0 -3 L3 -6" 
+        fill="none" 
+        stroke="#006A68" 
+        stroke-width="1.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.32"
+      />
+    </g>
+    
+    <!-- Highlight for dimensionality -->
+    <circle 
+      cx="18" 
+      cy="18" 
+      r="3" 
+      fill="#006A68" 
+      opacity="0.06"
+    />
+  </g>
+  
+  <!-- Dark theme elements (hidden by default, shown via CSS) -->
+  <g class="dark-theme" style="display: none;">
+    <!-- Background surface with MD3 dark theme -->
+    <circle 
+      cx="24" 
+      cy="24" 
+      r="20" 
+      fill="url(#darkSurfaceGradient)"
+      filter="url(#elevationShadow)"
+    />
+    
+    <!-- Outer ring for elevation in dark theme -->
+    <circle 
+      cx="24" 
+      cy="24" 
+      r="19" 
+      fill="none" 
+      stroke="#57D9D7" 
+      stroke-width="0.5" 
+      opacity="0.16"
+    />
+    
+    <!-- Main directional indicator for dark theme -->
+    <g transform="translate(24, 24)">
+      <!-- Primary arrow -->
+      <path 
+        d="M0 -8 L0 6 M-5 1 L0 6 L5 1" 
+        fill="none" 
+        stroke="#57D9D7" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.87"
+      />
+      
+      <!-- Secondary arrow for motion -->
+      <path 
+        d="M-4 -2 L0 2 L4 -2" 
+        fill="none" 
+        stroke="#57D9D7" 
+        stroke-width="2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.54"
+      />
+      
+      <!-- Tertiary arrow for depth -->
+      <path 
+        d="M-3 -6 L0 -3 L3 -6" 
+        fill="none" 
+        stroke="#57D9D7" 
+        stroke-width="1.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.32"
+      />
+    </g>
+    
+    <!-- Highlight for dimensionality -->
+    <circle 
+      cx="18" 
+      cy="18" 
+      r="3" 
+      fill="#57D9D7" 
+      opacity="0.06"
+    />
+  </g>
+</svg>
