@@ -45,6 +45,11 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text',
   required: false,
   disabled: false,
+  id: undefined,
+  label: undefined,
+  placeholder: undefined,
+  error: undefined,
+  modelValue: undefined,
 })
 
 const emit = defineEmits<{

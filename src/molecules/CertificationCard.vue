@@ -1,14 +1,25 @@
 <template>
-  <BaseCard variant="default" :hover="true" class="p-6" :class="{ 'ring-2 ring-md-light-tertiary dark:ring-md-dark-tertiary': certification.special }">
+  <BaseCard
+    variant="default"
+    :hover="true"
+    class="p-6"
+    :class="{ 'ring-2 ring-md-light-tertiary dark:ring-md-dark-tertiary': certification.special }"
+  >
     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
       <div class="flex-1">
         <h5 class="text-lg font-semibold text-md-light-primary dark:text-md-dark-primary mb-2">
           {{ certification.title }}
-          <span v-if="certification.special" class="ml-2 text-sm font-normal text-md-light-tertiary dark:text-md-dark-tertiary">
+          <span
+            v-if="certification.special"
+            class="ml-2 text-sm font-normal text-md-light-tertiary dark:text-md-dark-tertiary"
+          >
             ⭐ Industry Certification
           </span>
         </h5>
-        <p v-if="certification.location" class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant mb-2">
+        <p
+          v-if="certification.location"
+          class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant mb-2"
+        >
           📍 {{ certification.location }}
         </p>
       </div>

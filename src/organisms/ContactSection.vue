@@ -128,7 +128,6 @@
 
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
-import BaseIcon from '@/atoms/BaseIcon.vue'
 import BaseInput from '@/atoms/BaseInput.vue'
 import BaseTextarea from '@/atoms/BaseTextarea.vue'
 import BaseButton from '@/atoms/BaseButton.vue'
@@ -231,8 +230,8 @@ const handleSubmit = async () => {
     submitStatus.value = 'success'
     submitMessage.value = "Thank you for your message! I'll get back to you soon."
     resetForm()
-  } catch (error) {
-    console.error('Form submission error:', error)
+  } catch {
+    // console.error('Form submission error:', error)
     submitStatus.value = 'error'
     submitMessage.value =
       'Sorry, there was an error sending your message. Please try again or contact me directly.'

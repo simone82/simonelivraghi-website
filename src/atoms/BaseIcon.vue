@@ -17,6 +17,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   size: 'md',
   color: 'inherit',
+  ariaLabel: undefined,
 })
 
 const iconClasses = computed(() => {

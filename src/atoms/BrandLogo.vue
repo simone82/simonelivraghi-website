@@ -82,11 +82,7 @@ const altText = computed(() => {
 })
 
 const logoClasses = computed(() => {
-  const baseClasses = [
-    'object-contain',
-    'transition-all',
-    'duration-200',
-  ]
+  const baseClasses = ['object-contain', 'transition-all', 'duration-200']
 
   // All logos use consistent height with auto width to maintain aspect ratio
   const sizeClasses = {
@@ -102,8 +98,8 @@ const logoClasses = computed(() => {
   }
 
   // Brand-specific adjustments for better visibility
-  const brandSpecificClasses = []
-  
+  const brandSpecificClasses: string[] = []
+
   // Gmail logo might need slightly larger size to be more visible
   if (props.brand === 'gmail') {
     const gmailSizeClasses = {
@@ -129,12 +125,7 @@ const logoClasses = computed(() => {
 })
 
 const containerClasses = computed(() => {
-  const baseContainerClasses = [
-    'flex',
-    'items-center',
-    'justify-center',
-    'min-w-fit',
-  ]
+  const baseContainerClasses = ['flex', 'items-center', 'justify-center', 'min-w-fit']
 
   // Container sizes to ensure consistent minimum space
   const containerSizeClasses = {
@@ -144,10 +135,7 @@ const containerClasses = computed(() => {
     xl: ['min-h-[40px]'],
   }
 
-  return [
-    ...baseContainerClasses,
-    ...containerSizeClasses[props.size],
-  ]
+  return [...baseContainerClasses, ...containerSizeClasses[props.size]]
 })
 
 const onImageError = () => {

@@ -103,7 +103,7 @@ export default {
     },
   },
   plugins: [
-    // eslint-disable-next-line no-undef
+    // eslint-disable-next-line @typescript-eslint/no-require-imports, no-undef
     require('@tailwindcss/typography'),
   ],
 }

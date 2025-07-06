@@ -63,8 +63,8 @@ const saveConsent = (state: ConsentState) => {
 
   try {
     localStorage.setItem(CONSENT_KEY, JSON.stringify(state))
-  } catch (error) {
-    console.error('Failed to save cookie consent:', error)
+  } catch {
+    // console.error('Failed to save cookie consent:', error)
   }
 }
 
@@ -98,7 +98,7 @@ const loadGoogleAnalytics = () => {
 
   script.onload = () => {
     window.dataLayer = window.dataLayer || []
-    window.gtag = function (...args: any[]) {
+    window.gtag = function (...args: unknown[]) {
       window.dataLayer.push(args)
     }
     window.gtag('js', new Date())

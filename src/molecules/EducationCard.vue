@@ -8,7 +8,9 @@
         <h5 class="text-md font-medium text-md-light-secondary dark:text-md-dark-secondary mb-1">
           {{ education.institution }}
         </h5>
-        <p class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant mb-2">
+        <p
+          class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant mb-2"
+        >
           {{ education.location }}
         </p>
       </div>
@@ -31,7 +33,10 @@
       {{ education.description }}
     </p>
 
-    <div v-if="education.thesis" class="mt-4 pt-3 border-t border-md-light-outline-variant dark:border-md-dark-outline-variant">
+    <div
+      v-if="education.thesis"
+      class="mt-4 pt-3 border-t border-md-light-outline-variant dark:border-md-dark-outline-variant"
+    >
       <h6 class="text-xs font-semibold text-md-light-primary dark:text-md-dark-primary mb-1">
         Thesis:
       </h6>

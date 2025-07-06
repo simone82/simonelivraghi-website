@@ -16,17 +16,11 @@
         </p>
 
         <div class="grid md:grid-cols-2 gap-8">
-          <ProjectCard
-            v-for="(project, index) in projects"
-            :key="index"
-            :project="project"
-          />
+          <ProjectCard v-for="(project, index) in projects" :key="index" :project="project" />
         </div>
 
         <div class="mt-12 text-center">
-          <p
-            class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant"
-          >
+          <p class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant">
             Each project represents a commitment to innovation and technical excellence.
           </p>
         </div>

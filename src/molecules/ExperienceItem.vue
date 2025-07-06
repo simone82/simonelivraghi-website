@@ -37,8 +37,8 @@
         </h5>
         <ul class="space-y-1">
           <li
-            v-for="(achievement, index) in experience.achievements"
-            :key="index"
+            v-for="(achievement, achievementIndex) in experience.achievements"
+            :key="achievementIndex"
             class="text-sm text-md-light-on-surface dark:text-md-dark-on-surface flex items-start"
           >
             <span class="text-md-light-primary dark:text-md-dark-primary mr-2 mt-1">•</span>

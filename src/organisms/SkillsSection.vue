@@ -32,9 +32,7 @@
         </div>
 
         <div class="mt-12 text-center">
-          <p
-            class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant"
-          >
+          <p class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant">
             Always learning and exploring new technologies to stay at the forefront of innovation.
           </p>
         </div>

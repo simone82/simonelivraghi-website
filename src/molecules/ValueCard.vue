@@ -16,7 +16,9 @@
       {{ value.description }}
     </p>
 
-    <div class="mt-4 pt-4 border-t border-md-light-outline-variant dark:border-md-dark-outline-variant">
+    <div
+      class="mt-4 pt-4 border-t border-md-light-outline-variant dark:border-md-dark-outline-variant"
+    >
       <div class="w-full h-2 rounded-full" :class="accentClasses"></div>
     </div>
   </BaseCard>
@@ -46,9 +48,10 @@ const iconClasses = computed(() => {
     teal: 'bg-teal-100 dark:bg-teal-900/30',
     indigo: 'bg-indigo-100 dark:bg-indigo-900/30',
   }
-  
+
   return [
-    colorMap[props.value.color as keyof typeof colorMap] || 'bg-md-light-primary-container dark:bg-md-dark-primary-container',
+    colorMap[props.value.color as keyof typeof colorMap] ||
+      'bg-md-light-primary-container dark:bg-md-dark-primary-container',
     'group-hover:scale-110',
     'transition-transform',
     'duration-300',
@@ -64,9 +67,10 @@ const accentClasses = computed(() => {
     teal: 'bg-gradient-to-r from-teal-400 to-teal-600',
     indigo: 'bg-gradient-to-r from-indigo-400 to-indigo-600',
   }
-  
+
   return [
-    colorMap[props.value.color as keyof typeof colorMap] || 'bg-gradient-to-r from-md-light-primary to-md-light-secondary',
+    colorMap[props.value.color as keyof typeof colorMap] ||
+      'bg-gradient-to-r from-md-light-primary to-md-light-secondary',
     'opacity-70',
     'group-hover:opacity-100',
     'transition-opacity',

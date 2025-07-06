@@ -91,18 +91,13 @@
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
-      <ScrollIndicator 
-        size="xl" 
-        @click="scrollToAbout"
-        aria-label="Scroll down to learn more"
-      />
+      <ScrollIndicator size="xl" aria-label="Scroll down to learn more" @click="scrollToAbout" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import BaseButton from '@/atoms/BaseButton.vue'
-import BaseIcon from '@/atoms/BaseIcon.vue'
 import BrandLogo from '@/atoms/BrandLogo.vue'
 import ScrollIndicator from '@/atoms/ScrollIndicator.vue'
 import { useScrollSpy } from '@/composables/useScrollSpy'

@@ -14,8 +14,8 @@
         <p
           class="text-lg text-center text-md-light-on-surface dark:text-md-dark-on-surface mb-12 max-w-3xl mx-auto"
         >
-          Over 15 years of experience in software architecture, AI systems engineering, and team leadership
-          across various industries and technologies.
+          Over 15 years of experience in software architecture, AI systems engineering, and team
+          leadership across various industries and technologies.
         </p>
 
         <div class="relative">
@@ -35,9 +35,7 @@
         </div>
 
         <div class="mt-12 text-center">
-          <p
-            class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant"
-          >
+          <p class="text-sm text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant">
             Ready to bring this experience to your next project.
           </p>
         </div>
@@ -100,7 +98,7 @@ const experiences: Experience[] = [
       'Engineered integrations between AI agents and data systems for RAG capabilities',
       'Developed AI applications using LangChain, LangGraph, CrewAI, and AutoGPT',
       'Designed global enterprise agentic systems using advanced enterprise AI platforms',
-      'Contributed to adopting emerging AI standards like Google A2A and Anthropic\'s Model Context Protocol',
+      "Contributed to adopting emerging AI standards like Google A2A and Anthropic's Model Context Protocol",
       'Prototyped distributed AI architectures leveraging Apache Kafka and Apache Flink',
     ],
     skills: [
@@ -179,7 +177,7 @@ const experiences: Experience[] = [
     location: 'Milan, Italy',
     period: 'Jan. 2018 – Sep. 2023',
     description:
-      'Managed the company\'s Big Data infrastructure and team. Led the evolution from Hadoop/Spark to a modern lambda architecture with Kafka and Apache Flink for real-time processing.',
+      "Managed the company's Big Data infrastructure and team. Led the evolution from Hadoop/Spark to a modern lambda architecture with Kafka and Apache Flink for real-time processing.",
     achievements: [
       'Maintained and evolved ETL infrastructure from Cloudera Hadoop cluster with Spark jobs',
       'Introduced Apache Flink and migrated to lambda architecture',

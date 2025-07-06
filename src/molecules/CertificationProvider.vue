@@ -3,7 +3,7 @@
     <h4 class="text-xl font-semibold text-md-light-primary dark:text-md-dark-primary mb-6">
       {{ provider.name }}
     </h4>
-    
+
     <div class="grid gap-6">
       <CertificationCard
         v-for="(certification, index) in provider.certifications"

@@ -28,6 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'primary',
   size: 'md',
   disabled: false,
+  href: undefined,
+  to: undefined,
   tag: 'button',
 })
 
