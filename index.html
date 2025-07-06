@@ -7,15 +7,32 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Simone Livraghi" />
 
+    <!-- Performance optimizations -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Simone Livraghi" />
+
+    <!-- DNS prefetch for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- JetBrains Mono Font -->
+    <!-- JetBrains Mono Font with optimized loading -->
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Preload critical resources -->
+    <link rel="modulepreload" href="/src/main.ts" />
 
     <title>Simone Livraghi - AI Systems Engineer & Software Architect</title>
     <meta
@@ -23,8 +40,58 @@
       content="Experienced AI Systems Engineer and Software Architect based in Milan, Italy. Specializing in machine learning, cloud architecture, and scalable AI solutions."
     />
 
+    <!-- SEO meta tags -->
+    <meta
+      name="keywords"
+      content="AI Engineer, Software Architect, Machine Learning, Vue.js, TypeScript, Milan, Italy, Portfolio"
+    />
+    <link rel="canonical" href="https://www.simonelivraghi.com/" />
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Simone Livraghi - AI Systems Engineer & Software Architect"
+    />
+    <meta
+      property="og:description"
+      content="Experienced AI Systems Engineer and Software Architect based in Milan, Italy. Specializing in machine learning, cloud architecture, and scalable AI solutions."
+    />
+    <meta property="og:url" content="https://www.simonelivraghi.com/" />
+    <meta property="og:site_name" content="Simone Livraghi Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Simone Livraghi - AI Systems Engineer & Software Architect"
+    />
+    <meta
+      name="twitter:description"
+      content="Experienced AI Systems Engineer and Software Architect based in Milan, Italy. Specializing in machine learning, cloud architecture, and scalable AI solutions."
+    />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" href="/vite.svg" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Simone Livraghi",
+        "jobTitle": "AI Systems Engineer & Software Architect",
+        "url": "https://www.simonelivraghi.com",
+        "sameAs": ["https://linkedin.com/in/simonelivraghi", "https://github.com/simonelivraghi"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Milan",
+          "addressCountry": "Italy"
+        }
+      }
+    </script>
 
     <!-- Google Analytics will be loaded dynamically after cookie consent -->
   </head>

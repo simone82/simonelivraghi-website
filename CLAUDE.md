@@ -95,6 +95,109 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   - Avoid collecting personally identifiable information where possible
   - Use Google Analytics 4 with privacy-focused configuration
 
+## GDPR Compliance Implementation
+
+The project includes a comprehensive GDPR compliance system implemented through:
+
+### Cookie Consent Management
+- **Composable**: `/src/composables/useCookieConsent.ts` - Centralized consent management
+- **Consent Banner**: Vue component with Accept All, Reject All, and Customize options
+- **Granular Control**: Separate consent for Necessary, Analytics, Marketing, and Preferences cookies
+- **Persistence**: 365-day consent duration with automatic expiration handling
+- **Withdrawal**: Easy consent withdrawal mechanism available at any time
+
+### Analytics Integration with Consent
+- **Conditional Loading**: Google Analytics script loads only after user consent
+- **Privacy Configuration**: IP anonymization and data sharing disabled by default
+- **Tracking ID**: `G-G6TPHSNZ26` configured in `/src/config/index.ts`
+- **Event Tracking**: Page views and interactions tracked only with consent
+- **Fallback**: Silent failure when analytics unavailable or blocked
+
+### Technical Implementation Details
+```typescript
+interface CookieConsent {
+  necessary: boolean;      // Always true (required for site function)
+  analytics: boolean;      // Google Analytics tracking
+  marketing: boolean;      // Future marketing cookies
+  preferences: boolean;    // Theme and UI preferences
+  timestamp: number;       // Consent timestamp
+  version: string;         // Consent version for updates
+}
+```
+
+## Error Handling Architecture
+
+The project implements a sophisticated error handling system for production reliability:
+
+### Centralized Error Management
+- **Error Handler**: `/src/utils/errorHandler.ts` - Centralized error processing and reporting
+- **Custom Error Classes**: Type-safe error definitions with context and error codes
+- **Safe Async Operations**: Wrapper functions for error-prone operations like API calls
+- **Silent Failures**: Non-critical errors (like analytics) fail silently without breaking UX
+
+### Error Types and Handling
+```typescript
+class AppError extends Error {
+  constructor(
+    message: string,
+    public code?: string,
+    public context?: Record<string, unknown>
+  ) {
+    super(message);
+    this.name = 'AppError';
+  }
+}
+
+// Safe wrapper for async operations
+async function safeAsync<T>(
+  operation: () => Promise<T>,
+  fallback?: T
+): Promise<T | undefined> {
+  try {
+    return await operation();
+  } catch (error) {
+    handleError(error);
+    return fallback;
+  }
+}
+```
+
+### Error Context and Reporting
+- **Context Preservation**: Errors include relevant context data for debugging
+- **User-Friendly Messages**: Error boundaries provide graceful fallbacks
+- **Development vs Production**: Detailed errors in development, user-friendly in production
+- **Analytics Error Tracking**: Non-blocking error reporting to analytics when consent given
+
+## Configuration Management
+
+The project uses a centralized configuration system for maintainable settings:
+
+### Configuration Structure
+- **Main Config**: `/src/config/index.ts` - Environment-dependent settings
+- **Google Analytics**: Tracking ID `G-G6TPHSNZ26` with privacy settings
+- **Contact Forms**: Google Forms integration URLs and field mappings
+- **Theme Settings**: Material Design 3 token configurations
+- **Build Settings**: Vite configuration with optimizations and path aliases
+
+### Environment Handling
+```typescript
+interface AppConfig {
+  analytics: {
+    measurementId: string;
+    enabled: boolean;
+    anonymizeIp: boolean;
+  };
+  contact: {
+    formUrl: string;
+    fields: Record<string, string>;
+  };
+  theme: {
+    defaultMode: 'auto' | 'light' | 'dark';
+    storageKey: string;
+  };
+}
+```
+
 ### Implementation Guidelines
 - **Component Structure**: Break down complex components into smaller, focused pieces following atomic design
 - **Logic Separation**: Move business logic to custom composables or utility functions (Vue composition API)
@@ -115,42 +218,46 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for Simone Livraghi, an AI Systems Engineer & Software Architect based in Milan, Italy. **Currently built with React and JavaScript, but all future development must follow the technology stack requirements above (TypeScript, Vue.js, TailwindCSS).** The project is production-ready and currently in the content customization phase.
+This is a personal portfolio website for Simone Livraghi, an AI Systems Engineer & Software Architect based in Milan, Italy. **Built with Vue.js 3 + TypeScript + TailwindCSS following modern web development best practices.** The project is production-ready with comprehensive features including GDPR compliance, analytics integration, and professional content.
 
 ### Current Implementation Status
-✅ **Completed**: Fully functional React single-page application with all required sections and features.
+✅ **Production-Ready**: Fully functional Vue.js single-page application with all required sections, features, and production optimizations.
 
 ### Current Tech Stack
-- **Frontend Framework**: React 19 with Vite
-- **Styling**: Custom CSS with CSS Variables
-- **SEO**: React Helmet Async
-- **Icons**: Unicode emojis (no icon library needed)
-- **Font**: Inter (Google Fonts) - *Note: Should be migrated to JetBrains Mono*
+- **Frontend Framework**: Vue.js 3.5.12 with Composition API
+- **Language**: TypeScript 5.7.2 with strict type checking
+- **Styling**: TailwindCSS 3.4.16 with Material Design 3 tokens
+- **Build Tool**: Vite 6.0.5 with Vue plugin
+- **State Management**: Pinia 2.3.0 for centralized state
+- **Routing**: Vue Router 4.5.0 with hash-based navigation
+- **SEO**: @vueuse/head for meta tag management
+- **Font**: JetBrains Mono from Google Fonts
+- **Icons**: Official brand logos and SVG assets
 
-### Migration Requirements
-When working on this project, prioritize migrating to the required tech stack:
-1. **TypeScript Migration**: Convert JavaScript files to TypeScript with proper type definitions
-2. **Vue.js Migration**: Replace React components with Vue.js components using Composition API
-3. **TailwindCSS Migration**: Replace custom CSS with TailwindCSS utility classes
+### Production Features Implemented
+- **Navigation**: Vue Router with hash-based navigation, smooth scroll, active section highlighting
+- **Sections**: Home (hero), About, Skills, Experience, Projects, Certifications, Values, Contact - all complete with real content
+- **Theme System**: Auto/light/dark mode with Material Design 3 tokens and system preference detection
+- **GDPR Compliance**: Cookie consent management with analytics loading only after consent
+- **Analytics**: Google Analytics 4 integration with privacy-focused configuration
+- **Contact Integration**: Functional Google Forms integration with real contact form
+- **Professional Assets**: Real CV, profile photo, official brand logos (LinkedIn, GitHub, Gmail)
+- **SEO & Accessibility**: @vueuse/head for meta management, structured data, WCAG 2.1 AA compliance
+- **Error Handling**: Type-safe error management with centralized error handling architecture
+- **Performance**: Optimized Vite build, TailwindCSS purging, font preloading
 
-### Features Implemented
-- **Navigation**: Sticky header with smooth scroll, active section highlighting, mobile responsive, keyboard accessible
-- **Sections**: Home (hero), About, Skills, Experience, Projects, Certifications, Values, Contact - all complete
-- **Dark/Light Mode**: Theme toggle with system preference detection and localStorage persistence
-- **SEO & Accessibility**: Meta tags, Open Graph, Twitter cards, JSON-LD structured data, semantic HTML, ARIA labels
-- **Performance**: Fast Vite build system, component-based architecture, optimized CSS
-
-### Design System
-Current color palette (to be replaced with MD3 tokens):
+### Material Design 3 Implementation
+Full MD3 color system implemented with TailwindCSS integration:
 ```css
---color-primary: #006A68;
---color-primary-light: #57D9D7;
---color-secondary: #A2CFCD;
---color-tertiary: #DEB7FF;
---color-bg: #F5FBF9;
---color-bg-dark: #141414;
---color-text: #172B2A;
---color-accent: #744FB2;
+/* Primary Colors */
+--md-sys-color-primary: #006A68;
+--md-sys-color-primary-dark: #57D9D7;
+--md-sys-color-on-primary: #FFFFFF;
+
+/* Surface Hierarchy */
+--md-sys-color-surface: #F5FBF9;
+--md-sys-color-surface-container: #E9F5F3;
+--md-sys-color-surface-container-high: #DDE9E7;
 ```
 
 ## Development Commands
@@ -165,8 +272,20 @@ npm run build
 # Preview production build
 npm run preview
 
-# Run ESLint
+# Type checking
+npm run type-check
+
+# ESLint with auto-fix
 npm run lint
+
+# Format code with Prettier
+npm run format
+
+# Check formatting
+npm run format:check
+
+# Security audit
+npm run audit
 ```
 
 ## Git Commit Standards

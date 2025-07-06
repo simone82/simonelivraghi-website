@@ -1,7 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    './src/**/*.{html,js,ts,vue}',
+    './public/**/*.html',
+  ],
   darkMode: ['class', '[data-theme="dark"]'],
+
+  // Enable JIT mode for smaller CSS in production
+  mode: 'jit',
   theme: {
     extend: {
       fontFamily: {
@@ -105,5 +113,31 @@ export default {
   plugins: [
     // eslint-disable-next-line @typescript-eslint/no-require-imports, no-undef
     require('@tailwindcss/typography'),
+  ],
+
+  // Production optimizations
+  corePlugins: {
+    // Disable unused features for smaller bundle
+    preflight: true,
+    container: false, // We use custom container classes
+    accessibility: true,
+    pointerEvents: true,
+    visibility: true,
+  },
+
+  // Safelist important classes that might be used dynamically
+  safelist: [
+    // Theme classes
+    'data-theme-light',
+    'data-theme-dark',
+    'data-theme-auto',
+    // Dynamic color classes
+    {
+      pattern: /^md-(light|dark)-.+$/,
+    },
+    // Animation classes
+    'animate-fade-in',
+    'animate-slide-up',
+    'animate-bounce-gentle',
   ],
 }

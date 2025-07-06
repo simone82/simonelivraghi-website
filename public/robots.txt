@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.simonelivraghi.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block access to build artifacts and private files
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /_*
+Disallow: /*.map
+Disallow: /stats.html
