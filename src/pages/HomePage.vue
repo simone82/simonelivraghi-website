@@ -7,13 +7,7 @@
     <ExperienceSection />
     <ProjectsSection />
     <CertificationsSection />
-    <div id="values" class="section">
-      <div class="container">
-        <h2 class="text-3xl font-bold text-center text-md-light-primary dark:text-md-dark-primary">
-          Values - Coming Soon
-        </h2>
-      </div>
-    </div>
+    <ValuesSection />
     <ContactSection />
   </div>
 </template>
@@ -25,5 +19,6 @@ import SkillsSection from '@/organisms/SkillsSection.vue'
 import ExperienceSection from '@/organisms/ExperienceSection.vue'
 import ProjectsSection from '@/organisms/ProjectsSection.vue'
 import CertificationsSection from '@/organisms/CertificationsSection.vue'
+import ValuesSection from '@/organisms/ValuesSection.vue'
 import ContactSection from '@/organisms/ContactSection.vue'
 </script>
