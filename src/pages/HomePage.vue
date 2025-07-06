@@ -38,17 +38,12 @@
         </h2>
       </div>
     </div>
-    <div class="section" id="contact">
-      <div class="container">
-        <h2 class="text-3xl font-bold text-center text-md-light-primary dark:text-md-dark-primary">
-          Contact - Coming Soon
-        </h2>
-      </div>
-    </div>
+    <ContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
 import HeroSection from '@/organisms/HeroSection.vue'
 import AboutSection from '@/organisms/AboutSection.vue'
+import ContactSection from '@/organisms/ContactSection.vue'
 </script>
