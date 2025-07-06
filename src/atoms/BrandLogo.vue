@@ -9,14 +9,16 @@
     />
     <!-- GitHub with dual theme support -->
     <div v-else class="relative w-full h-full flex items-center justify-center">
+      <!-- Dark logo for light theme (better contrast) -->
       <img
-        :src="lightLogoSrc"
+        :src="darkLogoSrc"
         :alt="altText"
         :class="[...logoClasses, 'dark:hidden']"
         @error="onImageError"
       />
+      <!-- Light logo for dark theme (better contrast) -->
       <img
-        :src="darkLogoSrc"
+        :src="lightLogoSrc"
         :alt="altText"
         :class="[...logoClasses, 'hidden', 'dark:block']"
         @error="onImageError"
