@@ -101,18 +101,9 @@ import BaseButton from '@/atoms/BaseButton.vue'
 import BrandLogo from '@/atoms/BrandLogo.vue'
 import ScrollIndicator from '@/atoms/ScrollIndicator.vue'
 import { useScrollSpy } from '@/composables/useScrollSpy'
-import type { PersonalInfo } from '@/types'
+import { PERSONAL_INFO } from '@/config'
 
-// This would typically come from a store or API
-const personalInfo: PersonalInfo = {
-  name: 'Simone Livraghi',
-  title: 'AI Systems Engineer & Software Architect',
-  location: 'Milan, Italy',
-  email: 'simone.livraghi@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/slivraghi',
-  github: 'https://github.com/simonelivraghi',
-  bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
-}
+const personalInfo = PERSONAL_INFO
 
 const { scrollToSection } = useScrollSpy([])
 

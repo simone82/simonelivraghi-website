@@ -1,4 +1,7 @@
 import { ref, computed, watch } from 'vue'
+import { COOKIE_CONFIG, ANALYTICS_CONFIG } from '@/config'
+import { handleStorageError, safeAsync } from '@/utils/errorHandler'
+import type { Gtag } from '@/types/gtag'
 
 export interface CookiePreferences {
   necessary: boolean
@@ -13,17 +16,17 @@ export interface ConsentState {
   consentDate: string | null
 }
 
-const CONSENT_KEY = 'cookie-consent'
-const CONSENT_DURATION = 365 * 24 * 60 * 60 * 1000 // 1 year
+const CONSENT_KEY = COOKIE_CONFIG.consentKey
+const CONSENT_DURATION = COOKIE_CONFIG.consentDuration
 
 // Default consent state
 const defaultConsent: ConsentState = {
   hasConsented: false,
   preferences: {
-    necessary: true, // Always true
-    analytics: false,
-    marketing: false,
-    preferences: false,
+    necessary: COOKIE_CONFIG.categories.necessary,
+    analytics: COOKIE_CONFIG.categories.analytics,
+    marketing: COOKIE_CONFIG.categories.marketing,
+    preferences: COOKIE_CONFIG.categories.preferences,
   },
   consentDate: null,
 }
@@ -63,8 +66,10 @@ const saveConsent = (state: ConsentState) => {
 
   try {
     localStorage.setItem(CONSENT_KEY, JSON.stringify(state))
-  } catch {
-    // console.error('Failed to save cookie consent:', error)
+  } catch (error) {
+    if (error instanceof Error) {
+      handleStorageError(error, 'save cookie consent')
+    }
   }
 }
 
@@ -91,24 +96,34 @@ const loadGoogleAnalytics = () => {
   // Check if already loaded
   if (typeof window.gtag === 'function') return
 
-  // Create and append script
-  const script = document.createElement('script')
-  script.async = true
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-G6TPHSNZ26'
+  safeAsync(
+    async () => {
+      // Create and append script
+      const script = document.createElement('script')
+      script.async = true
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONFIG.googleAnalyticsId}`
 
-  script.onload = () => {
-    window.dataLayer = window.dataLayer || []
-    window.gtag = function (...args: unknown[]) {
-      window.dataLayer.push(args)
-    }
-    window.gtag('js', new Date())
-    window.gtag('config', 'G-G6TPHSNZ26', {
-      anonymize_ip: true,
-      allow_google_signals: false,
-    })
-  }
+      return new Promise<void>((resolve, reject) => {
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || []
+          window.gtag = function (...args: any[]) {
+            window.dataLayer.push(args)
+          } as Gtag
+          window.gtag('js', new Date())
+          window.gtag('config', ANALYTICS_CONFIG.googleAnalyticsId, {
+            anonymize_ip: ANALYTICS_CONFIG.anonymizeIp,
+            allow_google_signals: ANALYTICS_CONFIG.allowGoogleSignals,
+          })
+          resolve()
+        }
 
-  document.head.appendChild(script)
+        script.onerror = () => reject(new Error('Failed to load Google Analytics script'))
+        document.head.appendChild(script)
+      })
+    },
+    'Failed to load Google Analytics',
+    'ANALYTICS_LOADING'
+  )
 }
 
 export const useCookieConsent = () => {

@@ -8,9 +8,9 @@
           cx="24"
           cy="24"
           r="20"
-          fill="#006A68"
+          fill="var(--md-sys-color-primary)"
           opacity="0.30"
-          filter="drop-shadow(0 2px 8px rgba(0, 106, 104, 0.25))"
+          filter="drop-shadow(0 2px 8px var(--md-sys-color-primary-shadow))"
         />
 
         <!-- Outer ring for elevation -->
@@ -19,7 +19,7 @@
           cy="24"
           r="19"
           fill="none"
-          stroke="#006A68"
+          stroke="var(--md-sys-color-primary)"
           stroke-width="1.5"
           opacity="0.60"
         />
@@ -30,7 +30,7 @@
           <path
             d="M0 -8 L0 6 M-5 1 L0 6 L5 1"
             fill="none"
-            stroke="#006A68"
+            stroke="var(--md-sys-color-primary)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -41,7 +41,7 @@
           <path
             d="M-4 -2 L0 2 L4 -2"
             fill="none"
-            stroke="#006A68"
+            stroke="var(--md-sys-color-primary)"
             stroke-width="3"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -52,7 +52,7 @@
           <path
             d="M-3 -6 L0 -3 L3 -6"
             fill="none"
-            stroke="#006A68"
+            stroke="var(--md-sys-color-primary)"
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -61,8 +61,7 @@
         </g>
 
         <!-- Highlight for dimensionality -->
-        <circle cx="18" cy="18" r="3"
-fill="#006A68" opacity="0.20" />
+        <circle cx="18" cy="18" r="3" fill="var(--md-sys-color-primary)" opacity="0.20" />
       </g>
 
       <!-- Dark theme elements -->
@@ -72,7 +71,7 @@ fill="#006A68" opacity="0.20" />
           cx="24"
           cy="24"
           r="20"
-          fill="#57D9D7"
+          fill="var(--md-sys-color-primary)"
           opacity="0.35"
           filter="drop-shadow(0 2px 8px rgba(87, 217, 215, 0.30))"
         />
@@ -83,7 +82,7 @@ fill="#006A68" opacity="0.20" />
           cy="24"
           r="19"
           fill="none"
-          stroke="#57D9D7"
+          stroke="var(--md-sys-color-primary)"
           stroke-width="1.5"
           opacity="0.70"
         />
@@ -94,7 +93,7 @@ fill="#006A68" opacity="0.20" />
           <path
             d="M0 -8 L0 6 M-5 1 L0 6 L5 1"
             fill="none"
-            stroke="#57D9D7"
+            stroke="var(--md-sys-color-primary)"
             stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -105,7 +104,7 @@ fill="#006A68" opacity="0.20" />
           <path
             d="M-4 -2 L0 2 L4 -2"
             fill="none"
-            stroke="#57D9D7"
+            stroke="var(--md-sys-color-primary)"
             stroke-width="3"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -116,7 +115,7 @@ fill="#006A68" opacity="0.20" />
           <path
             d="M-3 -6 L0 -3 L3 -6"
             fill="none"
-            stroke="#57D9D7"
+            stroke="var(--md-sys-color-primary)"
             stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -125,8 +124,7 @@ fill="#006A68" opacity="0.20" />
         </g>
 
         <!-- Highlight for dimensionality -->
-        <circle cx="18" cy="18" r="3"
-fill="#57D9D7" opacity="0.25" />
+        <circle cx="18" cy="18" r="3" fill="var(--md-sys-color-primary)" opacity="0.25" />
       </g>
     </svg>
   </div>
@@ -171,24 +169,6 @@ const svgClasses = computed(() => {
 </script>
 
 <style scoped>
-/* Ensure proper Material Design 3 color variables are available */
-svg {
-  --md-sys-color-primary: #006a68;
-  --md-sys-color-primary-container: #006a68;
-}
-
-/* Dark theme overrides */
-@media (prefers-color-scheme: dark) {
-  svg {
-    --md-sys-color-primary: #57d9d7;
-    --md-sys-color-primary-container: #57d9d7;
-  }
-}
-
-/* Manual dark theme class support */
-html[data-theme='dark'] svg,
-.dark svg {
-  --md-sys-color-primary: #57d9d7;
-  --md-sys-color-primary-container: #57d9d7;
-}
+/* Use global Material Design 3 color tokens */
+/* No additional styles needed as CSS custom properties are globally available */
 </style>

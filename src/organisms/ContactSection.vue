@@ -132,17 +132,10 @@ import BaseInput from '@/atoms/BaseInput.vue'
 import BaseTextarea from '@/atoms/BaseTextarea.vue'
 import BaseButton from '@/atoms/BaseButton.vue'
 import BrandLogo from '@/atoms/BrandLogo.vue'
-import type { PersonalInfo } from '@/types'
+import { PERSONAL_INFO, CONTACT_FORM_CONFIG } from '@/config'
+import { handleFormError } from '@/utils/errorHandler'
 
-const personalInfo: PersonalInfo = {
-  name: 'Simone Livraghi',
-  title: 'AI Systems Engineer & Software Architect',
-  location: 'Milan, Italy',
-  email: 'simone.livraghi@gmail.com',
-  linkedin: 'https://www.linkedin.com/in/slivraghi',
-  github: 'https://github.com/simonelivraghi',
-  bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
-}
+const personalInfo = PERSONAL_INFO
 
 // Form state
 const form = reactive({
@@ -210,31 +203,31 @@ const handleSubmit = async () => {
   try {
     // Google Forms submission endpoint
     const formData = new FormData()
-    formData.append('entry.1060704342', form.name) // Full name
-    formData.append('entry.1399715446', form.email) // E-mail
-    formData.append('entry.455434414', form.company) // Company
-    formData.append('entry.1086913374', form.subject) // Subject
-    formData.append('entry.277625567', form.message) // Question
+    formData.append(CONTACT_FORM_CONFIG.fields.name, form.name)
+    formData.append(CONTACT_FORM_CONFIG.fields.email, form.email)
+    formData.append(CONTACT_FORM_CONFIG.fields.company, form.company)
+    formData.append(CONTACT_FORM_CONFIG.fields.subject, form.subject)
+    formData.append(CONTACT_FORM_CONFIG.fields.message, form.message)
 
-    await fetch(
-      'https://docs.google.com/forms/d/e/1FAIpQLSewRzyfbQw30c8dCAIlcVRrvSw2KFRoVxvZNTdOqYj-77QxRg/formResponse',
-      {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors', // Required for Google Forms
-      }
-    )
+    await fetch(CONTACT_FORM_CONFIG.formUrl, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors', // Required for Google Forms
+    })
 
     // Since we're using no-cors, we can't check the response
     // We'll assume success if no error is thrown
     submitStatus.value = 'success'
     submitMessage.value = "Thank you for your message! I'll get back to you soon."
     resetForm()
-  } catch {
-    // console.error('Form submission error:', error)
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error
+        ? handleFormError(error, 'CONTACT_FORM')
+        : 'Sorry, there was an error sending your message. Please try again or contact me directly.'
+
     submitStatus.value = 'error'
-    submitMessage.value =
-      'Sorry, there was an error sending your message. Please try again or contact me directly.'
+    submitMessage.value = errorMessage
   } finally {
     isSubmitting.value = false
   }

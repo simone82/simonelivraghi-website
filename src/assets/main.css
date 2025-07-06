@@ -8,6 +8,62 @@
     font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
   }
 
+  /* Material Design 3 CSS Custom Properties */
+  :root {
+    /* Light theme colors */
+    --md-sys-color-primary: rgb(0 106 104);
+    --md-sys-color-on-primary: rgb(255 255 255);
+    --md-sys-color-primary-container: rgb(0 171 169);
+    --md-sys-color-on-primary-container: rgb(0 56 55);
+    --md-sys-color-secondary: rgb(58 102 100);
+    --md-sys-color-on-secondary: rgb(255 255 255);
+    --md-sys-color-tertiary: rgb(116 76 154);
+    --md-sys-color-error: rgb(186 26 26);
+    --md-sys-color-background: rgb(245 251 249);
+    --md-sys-color-on-background: rgb(23 29 28);
+    --md-sys-color-surface: rgb(245 251 249);
+    --md-sys-color-on-surface: rgb(23 29 28);
+    --md-sys-color-outline: rgb(108 122 121);
+    --md-sys-color-primary-shadow: rgba(0, 106, 104, 0.25);
+  }
+
+  /* Dark theme colors */
+  [data-theme='dark'] {
+    --md-sys-color-primary: rgb(87 217 215);
+    --md-sys-color-on-primary: rgb(0 55 54);
+    --md-sys-color-primary-container: rgb(0 171 169);
+    --md-sys-color-on-primary-container: rgb(0 56 55);
+    --md-sys-color-secondary: rgb(162 207 205);
+    --md-sys-color-on-secondary: rgb(19 53 52);
+    --md-sys-color-tertiary: rgb(222 183 255);
+    --md-sys-color-error: rgb(255 180 171);
+    --md-sys-color-background: rgb(15 20 19);
+    --md-sys-color-on-background: rgb(222 228 227);
+    --md-sys-color-surface: rgb(15 20 19);
+    --md-sys-color-on-surface: rgb(222 228 227);
+    --md-sys-color-outline: rgb(130 144 143);
+    --md-sys-color-primary-shadow: rgba(87, 217, 215, 0.30);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --md-sys-color-primary: rgb(87 217 215);
+      --md-sys-color-on-primary: rgb(0 55 54);
+      --md-sys-color-primary-container: rgb(0 171 169);
+      --md-sys-color-on-primary-container: rgb(0 56 55);
+      --md-sys-color-secondary: rgb(162 207 205);
+      --md-sys-color-on-secondary: rgb(19 53 52);
+      --md-sys-color-tertiary: rgb(222 183 255);
+      --md-sys-color-error: rgb(255 180 171);
+      --md-sys-color-background: rgb(15 20 19);
+      --md-sys-color-on-background: rgb(222 228 227);
+      --md-sys-color-surface: rgb(15 20 19);
+      --md-sys-color-on-surface: rgb(222 228 227);
+      --md-sys-color-outline: rgb(130 144 143);
+      --md-sys-color-primary-shadow: rgba(87, 217, 215, 0.30);
+    }
+  }
+
   body {
     @apply bg-md-light-background text-md-light-on-background;
     @apply dark:bg-md-dark-background dark:text-md-dark-on-background;

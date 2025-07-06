@@ -1,16 +1,14 @@
 /**
  * Google Analytics composable for Vue.js
- * Provides methods to track events and page views
+ * Provides methods to track events and page views with proper TypeScript types
  */
 import { useCookieConsent } from './useCookieConsent'
-
-// Extend the Window interface to include gtag
-declare global {
-  interface Window {
-    gtag: (command: string, ...args: unknown[]) => void
-    dataLayer: unknown[]
-  }
-}
+import { ANALYTICS_CONFIG } from '@/config'
+import { handleAnalyticsError } from '@/utils/errorHandler'
+import type {
+  GtagEventOptions,
+  GtagConfigOptions,
+} from '@/types/gtag'
 
 export const useAnalytics = () => {
   const { analyticsAllowed } = useCookieConsent()
@@ -24,25 +22,41 @@ export const useAnalytics = () => {
 
   // Track page view
   const trackPageView = (path: string, title?: string) => {
-    if (!isGtagAvailable()) return
+    try {
+      if (!isGtagAvailable()) return
 
-    window.gtag('config', 'G-G6TPHSNZ26', {
-      page_path: path,
-      page_title: title,
-      anonymize_ip: true,
-      allow_google_signals: false,
-    })
+      const config: GtagConfigOptions = {
+        page_path: path,
+        page_title: title,
+        anonymize_ip: ANALYTICS_CONFIG.anonymizeIp,
+        allow_google_signals: ANALYTICS_CONFIG.allowGoogleSignals,
+      }
+
+      window.gtag('config', ANALYTICS_CONFIG.googleAnalyticsId, config)
+    } catch (error) {
+      if (error instanceof Error) {
+        handleAnalyticsError(error)
+      }
+    }
   }
 
   // Track custom event
   const trackEvent = (action: string, category?: string, label?: string, value?: number) => {
-    if (!isGtagAvailable()) return
+    try {
+      if (!isGtagAvailable()) return
 
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    })
+      const eventOptions: GtagEventOptions = {
+        event_category: category,
+        event_label: label,
+        value: value,
+      }
+
+      window.gtag('event', action, eventOptions)
+    } catch (error) {
+      if (error instanceof Error) {
+        handleAnalyticsError(error)
+      }
+    }
   }
 
   // Track contact form submission
