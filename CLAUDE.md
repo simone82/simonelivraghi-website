@@ -49,6 +49,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **TailwindCSS Font Config**: Configure Tailwind to use JetBrains Mono as the default font family
 - **Fallback Stack**: Define proper fallback fonts: `'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace`
 
+### Brand and Visual Assets Requirements
+- **Official Brand Materials**: Always use official logos and brand assets for external services and third-party platforms
+- **Logo Sources**: Store official logos in the `/public` folder for proper referencing
+- **Brand Guidelines**: Follow official brand guidelines for logo usage, sizing, and positioning
+- **No Emoji for Brands**: Never use emoji as substitutes for official brand logos (e.g., use LinkedIn official logo instead of 💼)
+- **High Quality Assets**: Use high-resolution logos (PNG, SVG preferred) for crisp display on all devices
+- **Accessibility**: Ensure logos have proper alt text and meet accessibility standards
+- **Legal Compliance**: Only use official brand materials that comply with respective brand usage guidelines
+
 ### GDPR and Cookie Policy Compliance
 - **Always ensure GDPR compliance** for all data collection and processing activities
 - **Cookie Consent**: Implement a cookie consent banner before loading any tracking scripts
