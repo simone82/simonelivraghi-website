@@ -1,0 +1,111 @@
+# Simone Livraghi Personal Website
+
+## Project Overview
+Personal portfolio website for Simone Livraghi, an AI Systems Engineer & Software Architect based in Milan, Italy. This is a complete, production-ready single-page React application.
+
+## Project Location
+**Root Directory**: `~/Repository/websites/simonelivraghi.com/`
+
+## Current Status
+✅ **FULLY IMPLEMENTED** - All features complete and functional
+🚀 **READY FOR DEPLOYMENT** - Production-ready website
+📝 **CONTENT CUSTOMIZATION PHASE** - Replace placeholder content with real data
+
+## Key Features Implemented
+- ✅ Single page application with smooth scroll navigation
+- ✅ All 8 required sections: Home, About, Skills, Experience, Projects, Certifications, Values, Contact
+- ✅ Dark/light mode toggle with system preference detection
+- ✅ Fully mobile responsive design
+- ✅ SEO optimized with meta tags and structured data
+- ✅ WCAG 2.1 AA accessible
+- ✅ Material Design 3 inspired UI
+- ✅ Fast Vite build system
+
+## Tech Stack
+- **Framework**: React 19 with Vite
+- **Styling**: Custom CSS with CSS Variables
+- **SEO**: React Helmet Async
+- **Font**: Inter (Google Fonts)
+- **Icons**: Unicode emojis
+- **Theme**: Dark/Light mode with localStorage persistence
+
+## Project Structure
+```
+~/Repository/websites/simonelivraghi.com/
+├── src/
+│   ├── components/         # All 10 React components
+│   ├── styles/            # CSS variables and global styles
+│   ├── hooks/             # useTheme hook
+│   └── App.jsx            # Main app component
+├── dev-context/           # Project documentation
+├── public/                # Static assets
+├── package.json           # Dependencies and scripts
+├── index.html             # HTML entry point
+└── README.md              # Project documentation
+```
+
+## Development Commands
+```bash
+npm run dev      # Start development server (localhost:5173)
+npm run build    # Build for production
+npm run preview  # Preview production build
+```
+
+## Important Context Files
+- `dev-context/context.md` - Original project requirements
+- `dev-context/project-context.md` - Complete technical documentation
+- `dev-context/simone-website.css` - Material Design 3 color tokens
+- `README.md` - User-facing documentation
+
+## Components Overview
+1. **Navigation.jsx** - Sticky header with active section highlighting
+2. **Home.jsx** - Hero section with name, title, CTAs
+3. **About.jsx** - Personal introduction with statistics
+4. **Skills.jsx** - Technical skills categorized by domain
+5. **Experience.jsx** - Work experience timeline
+6. **Projects.jsx** - Portfolio grid with project cards
+7. **Certifications.jsx** - Professional certifications display
+8. **Values.jsx** - Core values, interests, and philosophy
+9. **Contact.jsx** - Contact form with social links
+10. **ThemeToggle.jsx** - Dark/light mode toggle button
+11. **SEO.jsx** - Meta tags and structured data
+
+## Next Steps for Customization
+### High Priority
+1. **Personal Information**: Update Home.jsx with real name, title, location
+2. **About Section**: Replace placeholder bio with actual information
+3. **Contact Info**: Update email, LinkedIn, GitHub links
+4. **Experience**: Replace with real work history and achievements
+
+### Medium Priority
+5. **Projects**: Add real project data with descriptions and links
+6. **Skills**: Update with actual technical skills and expertise
+7. **Certifications**: Add real certifications and credentials
+8. **Values**: Personalize values and interests section
+
+### Low Priority
+9. **Assets**: Add profile photo, project images, custom favicon
+10. **Analytics**: Add Google Analytics or similar tracking
+11. **Backend**: Implement contact form submission (currently mailto)
+
+## Deployment Ready
+- Build command: `npm run build`
+- Output directory: `dist/`
+- Compatible with: Vercel, Netlify, GitHub Pages, any static hosting
+
+## Performance & Quality
+- Fast loading with Vite optimization
+- Mobile-first responsive design
+- Accessible with ARIA labels and semantic HTML
+- SEO optimized with Open Graph and Twitter cards
+- Cross-browser compatible
+
+## Theme System
+- CSS variables in `src/styles/variables.css`
+- Material Design 3 tokens available in `dev-context/simone-website.css`
+- Dark/light mode with automatic system detection
+- User preference persistence in localStorage
+
+---
+
+**Status**: Production-ready website awaiting content personalization
