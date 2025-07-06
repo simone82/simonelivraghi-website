@@ -49,6 +49,43 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **TailwindCSS Font Config**: Configure Tailwind to use JetBrains Mono as the default font family
 - **Fallback Stack**: Define proper fallback fonts: `'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace`
 
+### GDPR and Cookie Policy Compliance
+- **Always ensure GDPR compliance** for all data collection and processing activities
+- **Cookie Consent**: Implement a cookie consent banner before loading any tracking scripts
+- **Consent Management**:
+  - No cookies or tracking scripts should load before user consent
+  - Provide clear options to accept, reject, or customize cookie preferences
+  - Store consent preferences in localStorage or a consent management cookie
+  - Respect user's choice and only load approved services
+- **Google Analytics Integration**:
+  - Load Google Analytics script only after obtaining user consent
+  - Implement IP anonymization: `gtag('config', 'GA_MEASUREMENT_ID', { 'anonymize_ip': true })`
+  - Disable data sharing with Google: `gtag('config', 'GA_MEASUREMENT_ID', { 'allow_google_signals': false })`
+  - Set appropriate data retention period in Google Analytics settings
+- **Privacy Policy Requirements**:
+  - Create a comprehensive privacy policy page explaining data collection
+  - Include information about cookies, analytics, data retention, and user rights
+  - Make privacy policy easily accessible from all pages
+- **Cookie Policy Requirements**:
+  - Document all cookies used by the website
+  - Categorize cookies: Necessary, Analytics, Marketing, Preferences
+  - Explain the purpose and duration of each cookie
+  - Provide instructions for managing/deleting cookies
+- **User Rights Implementation**:
+  - Provide mechanism to withdraw consent at any time
+  - Allow users to request data deletion
+  - Enable users to export their data (if applicable)
+  - Implement "Do Not Track" browser signal respect
+- **Technical Implementation**:
+  - Create a consent management composable/hook
+  - Lazy load analytics scripts based on consent
+  - Use event-driven architecture for consent state changes
+  - Implement consent checks before any tracking calls
+- **Data Minimization**:
+  - Only collect necessary data for stated purposes
+  - Avoid collecting personally identifiable information where possible
+  - Use Google Analytics 4 with privacy-focused configuration
+
 ### Implementation Guidelines
 - **Component Structure**: Break down complex components into smaller, focused pieces following atomic design
 - **Logic Separation**: Move business logic to custom composables or utility functions (Vue composition API)

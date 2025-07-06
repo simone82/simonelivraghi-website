@@ -1,6 +1,6 @@
 <template>
   <header :class="headerClasses">
-    <nav class="container" role="navigation" aria-label="Main navigation">
+    <nav class="container relative" role="navigation" aria-label="Main navigation">
       <div class="flex items-center justify-between">
         <!-- Logo/Brand -->
         <a
@@ -39,21 +39,23 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <div
-        v-if="mobileMenuOpen"
-        class="md:hidden mt-4 pb-4 border-t border-md-light-outline-variant dark:border-md-dark-outline-variant"
-      >
-        <ul class="flex flex-col space-y-2 mt-4">
-          <NavigationItem
-            v-for="item in navigationItems"
-            :key="item.id"
-            :href="item.href"
-            :label="item.label"
-            :is-active="activeSection === item.id"
-            @navigate="handleMobileNavigation(item.id)"
-          />
-        </ul>
-      </div>
+      <Transition name="slide-down">
+        <div
+          v-if="mobileMenuOpen"
+          class="md:hidden absolute left-0 right-0 top-full bg-md-light-surface/95 dark:bg-md-dark-surface/95 backdrop-blur-md shadow-lg border-b border-md-light-outline-variant dark:border-md-dark-outline-variant"
+        >
+          <ul class="flex flex-col space-y-2 p-4">
+            <NavigationItem
+              v-for="item in navigationItems"
+              :key="item.id"
+              :href="item.href"
+              :label="item.label"
+              :is-active="activeSection === item.id"
+              @navigate="handleMobileNavigation(item.id)"
+            />
+          </ul>
+        </div>
+      </Transition>
     </nav>
   </header>
 </template>
@@ -84,7 +86,7 @@ const mobileMenuOpen = ref(false)
 
 const headerClasses = computed(() => {
   const baseClasses = 'fixed top-0 left-0 right-0 z-40 transition-all duration-300'
-  const backgroundClasses = isScrolled.value
+  const backgroundClasses = (isScrolled.value || mobileMenuOpen.value)
     ? 'bg-md-light-surface/95 dark:bg-md-dark-surface/95 backdrop-blur-md shadow-md border-b border-md-light-outline-variant dark:border-md-dark-outline-variant'
     : 'bg-transparent'
   const paddingClasses = isScrolled.value ? 'py-3' : 'py-6'
@@ -105,3 +107,20 @@ const handleMobileNavigation = (sectionId: string) => {
   mobileMenuOpen.value = false
 }
 </script>
+
+<style scoped>
+.slide-down-enter-active,
+.slide-down-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-down-enter-from {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.slide-down-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+</style>

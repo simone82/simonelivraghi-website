@@ -7,6 +7,7 @@
     </main>
     
     <ThemeToggle />
+    <CookieConsentBanner />
   </div>
 </template>
 
@@ -14,6 +15,7 @@
 import { RouterView } from 'vue-router'
 import AppNavigation from '@/organisms/AppNavigation.vue'
 import ThemeToggle from '@/molecules/ThemeToggle.vue'
+import CookieConsentBanner from '@/organisms/CookieConsentBanner.vue'
 import { useTheme } from '@/composables/useTheme'
 
 // Initialize theme system
