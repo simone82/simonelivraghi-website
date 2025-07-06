@@ -115,13 +115,43 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for Simone Livraghi. **Currently built with React and JavaScript, but all future development must follow the technology stack requirements above (TypeScript, Vue.js, TailwindCSS).** The project is production-ready and currently in the content customization phase.
+This is a personal portfolio website for Simone Livraghi, an AI Systems Engineer & Software Architect based in Milan, Italy. **Currently built with React and JavaScript, but all future development must follow the technology stack requirements above (TypeScript, Vue.js, TailwindCSS).** The project is production-ready and currently in the content customization phase.
+
+### Current Implementation Status
+✅ **Completed**: Fully functional React single-page application with all required sections and features.
+
+### Current Tech Stack
+- **Frontend Framework**: React 19 with Vite
+- **Styling**: Custom CSS with CSS Variables
+- **SEO**: React Helmet Async
+- **Icons**: Unicode emojis (no icon library needed)
+- **Font**: Inter (Google Fonts) - *Note: Should be migrated to JetBrains Mono*
 
 ### Migration Requirements
 When working on this project, prioritize migrating to the required tech stack:
 1. **TypeScript Migration**: Convert JavaScript files to TypeScript with proper type definitions
 2. **Vue.js Migration**: Replace React components with Vue.js components using Composition API
 3. **TailwindCSS Migration**: Replace custom CSS with TailwindCSS utility classes
+
+### Features Implemented
+- **Navigation**: Sticky header with smooth scroll, active section highlighting, mobile responsive, keyboard accessible
+- **Sections**: Home (hero), About, Skills, Experience, Projects, Certifications, Values, Contact - all complete
+- **Dark/Light Mode**: Theme toggle with system preference detection and localStorage persistence
+- **SEO & Accessibility**: Meta tags, Open Graph, Twitter cards, JSON-LD structured data, semantic HTML, ARIA labels
+- **Performance**: Fast Vite build system, component-based architecture, optimized CSS
+
+### Design System
+Current color palette (to be replaced with MD3 tokens):
+```css
+--color-primary: #006A68;
+--color-primary-light: #57D9D7;
+--color-secondary: #A2CFCD;
+--color-tertiary: #DEB7FF;
+--color-bg: #F5FBF9;
+--color-bg-dark: #141414;
+--color-text: #172B2A;
+--color-accent: #744FB2;
+```
 
 ## Development Commands
 
@@ -191,7 +221,7 @@ The app is structured as a single-page application with smooth scrolling navigat
 - **useTheme hook**: Manages theme state with localStorage persistence and system preference detection
 - **CSS Architecture**: Each component has its own CSS file with component-specific styles
 - **Theme Application**: Uses `data-theme` attribute on `document.documentElement` for theme switching
-- **Material Design 3**: Color tokens available in `dev-context/simone-website.css` (not yet integrated)
+- **Material Design 3**: Color tokens available but not yet integrated
 
 ### State Management
 - **Theme State**: Managed by `useTheme` hook with localStorage persistence
@@ -241,6 +271,7 @@ The website currently contains placeholder content that needs to be replaced:
 - **Contact Details**: Replace email, LinkedIn, GitHub links throughout
 - **Professional Experience**: Replace timeline data in Experience.jsx
 - **Skills**: Update technical skills categories and items
+- **Assets**: Add profile photo, project screenshots, custom favicon, Open Graph image
 
 ### Component Data Patterns
 - **Experience.jsx**: Uses array of experience objects with title, company, period, description, achievements
