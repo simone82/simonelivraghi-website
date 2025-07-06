@@ -68,20 +68,20 @@
               :href="personalInfo.linkedin"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant hover:text-md-light-primary dark:hover:text-md-dark-primary transition-colors duration-200"
+              class="p-2 rounded-lg hover:bg-md-light-surface-container dark:hover:bg-md-dark-surface-container transition-all duration-200 hover:scale-110"
               aria-label="LinkedIn Profile"
             >
-              <BaseIcon icon="💼" size="xl" />
+              <BrandLogo brand="linkedin" size="xl" />
               <span class="sr-only">LinkedIn</span>
             </a>
             <a
               :href="personalInfo.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-md-light-on-surface-variant dark:text-md-dark-on-surface-variant hover:text-md-light-primary dark:hover:text-md-dark-primary transition-colors duration-200"
+              class="p-2 rounded-lg hover:bg-md-light-surface-container dark:hover:bg-md-dark-surface-container transition-all duration-200 hover:scale-110"
               aria-label="GitHub Profile"
             >
-              <BaseIcon icon="🐙" size="xl" />
+              <BrandLogo brand="github" size="xl" />
               <span class="sr-only">GitHub</span>
             </a>
           </div>
@@ -103,6 +103,7 @@
 <script setup lang="ts">
 import BaseButton from '@/atoms/BaseButton.vue'
 import BaseIcon from '@/atoms/BaseIcon.vue'
+import BrandLogo from '@/atoms/BrandLogo.vue'
 import { useScrollSpy } from '@/composables/useScrollSpy'
 import type { PersonalInfo } from '@/types'
 

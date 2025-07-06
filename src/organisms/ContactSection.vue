@@ -103,20 +103,20 @@
           <div class="flex justify-center gap-8">
             <a
               :href="`mailto:${personalInfo.email}`"
-              class="text-md-light-primary dark:text-md-dark-primary hover:text-md-light-primary-container dark:hover:text-md-dark-primary-container transition-colors duration-200"
+              class="p-2 rounded-lg hover:bg-md-light-surface-container dark:hover:bg-md-dark-surface-container transition-all duration-200 hover:scale-110"
               aria-label="Send Email"
             >
-              <BaseIcon icon="📧" size="lg" />
+              <BrandLogo brand="gmail" size="lg" />
               <span class="sr-only">Email</span>
             </a>
             <a
               :href="personalInfo.linkedin"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-md-light-primary dark:text-md-dark-primary hover:text-md-light-primary-container dark:hover:text-md-dark-primary-container transition-colors duration-200"
+              class="p-2 rounded-lg hover:bg-md-light-surface-container dark:hover:bg-md-dark-surface-container transition-all duration-200 hover:scale-110"
               aria-label="LinkedIn Profile"
             >
-              <BaseIcon icon="💼" size="lg" />
+              <BrandLogo brand="linkedin" size="lg" />
               <span class="sr-only">LinkedIn</span>
             </a>
           </div>
@@ -132,6 +132,7 @@ import BaseIcon from '@/atoms/BaseIcon.vue'
 import BaseInput from '@/atoms/BaseInput.vue'
 import BaseTextarea from '@/atoms/BaseTextarea.vue'
 import BaseButton from '@/atoms/BaseButton.vue'
+import BrandLogo from '@/atoms/BrandLogo.vue'
 import type { PersonalInfo } from '@/types'
 
 const personalInfo: PersonalInfo = {
