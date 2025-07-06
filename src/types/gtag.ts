@@ -25,7 +25,7 @@ export interface GtagConfigOptions {
   send_page_view?: boolean
   transport_type?: 'beacon' | 'xhr' | 'image'
   user_id?: string
-  user_properties?: Record<string, any>
+  user_properties?: Record<string, string | number | boolean>
 }
 
 // Google Analytics event options
@@ -36,7 +36,7 @@ export interface GtagEventOptions {
   custom_parameter_1?: string
   custom_parameter_2?: string
   send_to?: string
-  [key: string]: any
+  [key: string]: string | number | boolean | undefined
 }
 
 // Google Analytics timing options
@@ -76,11 +76,16 @@ export interface Gtag {
   (command: 'js', date: Date): void
 
   // Set parameters
-  (command: 'set', config: Record<string, any>): void
-  (command: 'set', targetId: string, config: Record<string, any>): void
+  (command: 'set', config: Record<string, string | number | boolean>): void
+  (command: 'set', targetId: string, config: Record<string, string | number | boolean>): void
 
   // Get parameters
-  (command: 'get', targetId: string, fieldName: string, callback: (value: any) => void): void
+  (
+    command: 'get',
+    targetId: string,
+    fieldName: string,
+    callback: (value: string | number | boolean) => void
+  ): void
 
   // Consent
   (
@@ -98,14 +103,14 @@ export interface Gtag {
   ): void
 
   // Generic fallback for other commands
-  (command: string, ...args: any[]): void
+  (command: string, ...args: unknown[]): void
 }
 
 // Extend the Window interface
 declare global {
   interface Window {
     gtag: Gtag
-    dataLayer: any[]
+    dataLayer: unknown[]
   }
 }
 

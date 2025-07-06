@@ -106,7 +106,7 @@ const loadGoogleAnalytics = () => {
       return new Promise<void>((resolve, reject) => {
         script.onload = () => {
           window.dataLayer = window.dataLayer || []
-          window.gtag = function (...args: any[]) {
+          window.gtag = function (...args: unknown[]) {
             window.dataLayer.push(args)
           } as Gtag
           window.gtag('js', new Date())

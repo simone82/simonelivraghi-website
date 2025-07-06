@@ -74,13 +74,6 @@ export const BRAND_ASSETS = {
   },
 } as const
 
-// Development Configuration (if needed for development builds)
-export const DEV_CONFIG = {
-  enableDevTools: true, // Could be environment-dependent in the future
-  apiBaseUrl: '',
-  debugMode: false,
-} as const
-
 // Export everything as a single config object for convenience
 export const CONFIG = {
   analytics: ANALYTICS_CONFIG,
@@ -89,7 +82,6 @@ export const CONFIG = {
   cookies: COOKIE_CONFIG,
   app: APP_CONFIG,
   brandAssets: BRAND_ASSETS,
-  dev: DEV_CONFIG,
 } as const
 
 export default CONFIG

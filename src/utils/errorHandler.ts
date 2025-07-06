@@ -38,7 +38,10 @@ export const logError = (error: Error | AppError, context?: string): void => {
   // In development, log full details
   // In production, you might want to send errors to a monitoring service
   // like Sentry, LogRocket, or your own logging endpoint
-  console.error('Error:', errorInfo.code, errorInfo.message)
+  if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line no-console
+    console.error('Error:', errorInfo.code, errorInfo.message)
+  }
 }
 
 /**
@@ -86,7 +89,10 @@ export const handleFormError = (error: Error, context = 'FORM_SUBMISSION'): stri
 export const handleAnalyticsError = (error: Error): void => {
   // Analytics errors should not affect user experience
   // Log silently without affecting the UI
-  console.warn('Analytics Error:', error.message)
+  if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line no-console
+    console.warn('Analytics Error:', error.message)
+  }
 }
 
 /**
@@ -104,7 +110,10 @@ export const handleStorageError = (_error: Error, operation: string): void => {
 /**
  * Generic error boundary for Vue composables
  */
-export const withErrorHandling = <T extends (...args: unknown[]) => unknown>(fn: T, context: string): T => {
+export const withErrorHandling = <T extends (...args: unknown[]) => unknown>(
+  fn: T,
+  context: string
+): T => {
   return ((...args: Parameters<T>) => {
     try {
       return fn(...args)

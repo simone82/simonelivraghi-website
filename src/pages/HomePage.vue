@@ -2,7 +2,6 @@
   <div>
     <HeroSection />
     <AboutSection />
-    <!-- Other sections will be added here -->
     <SkillsSection />
     <ExperienceSection />
     <ProjectsSection />

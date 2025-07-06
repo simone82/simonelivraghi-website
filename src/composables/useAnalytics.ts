@@ -5,10 +5,7 @@
 import { useCookieConsent } from './useCookieConsent'
 import { ANALYTICS_CONFIG } from '@/config'
 import { handleAnalyticsError } from '@/utils/errorHandler'
-import type {
-  GtagEventOptions,
-  GtagConfigOptions,
-} from '@/types/gtag'
+import type { GtagEventOptions, GtagConfigOptions } from '@/types/gtag'
 
 export const useAnalytics = () => {
   const { analyticsAllowed } = useCookieConsent()

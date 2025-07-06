@@ -1,5 +1,8 @@
 <template>
-  <BaseCard variant="default" :hover="true" class="p-6 h-full flex flex-col" :class="cardClasses">
+  <BaseCard
+variant="default"
+:hover="true" class="p-6 h-full flex flex-col"
+:class="cardClasses">
     <div class="flex items-center mb-4">
       <div
         class="w-12 h-12 rounded-full flex items-center justify-center text-2xl mr-4 flex-shrink-0"
