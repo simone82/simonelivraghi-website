@@ -31,17 +31,19 @@ export interface SkillCategory {
 export interface Experience {
   title: string
   company: string
+  location: string
   period: string
   description: string
   achievements: string[]
-  technologies?: string[]
+  skills?: string[]
 }
 
 export interface Project {
   title: string
   description: string
   technologies: string[]
-  achievements: string[]
+  highlights: string[]
+  category: string
   link?: string
   github?: string
   image?: string
