@@ -2,6 +2,7 @@
   <div>
     <HeroSection />
     <AboutSection />
+    <AICodingSection />
     <SkillsSection />
     <ExperienceSection />
     <ProjectsSection />
@@ -14,6 +15,7 @@
 <script setup lang="ts">
 import HeroSection from '@/organisms/HeroSection.vue'
 import AboutSection from '@/organisms/AboutSection.vue'
+import AICodingSection from '@/organisms/AICodingSection.vue'
 import SkillsSection from '@/organisms/SkillsSection.vue'
 import ExperienceSection from '@/organisms/ExperienceSection.vue'
 import ProjectsSection from '@/organisms/ProjectsSection.vue'

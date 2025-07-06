@@ -70,10 +70,10 @@ When you practice context engineering, you aren't just helping an AI assistant w
 
 ```bash
 # Clone the repository
-git clone https://github.com/simonelivraghi/simonelivraghi.com.git
+git clone https://github.com/simone82/simonelivraghi-website.git
 
 # Navigate to project directory
-cd simonelivraghi.com
+cd simonelivraghi-website
 
 # Install dependencies
 npm install
@@ -185,8 +185,8 @@ Contributions, issues, and feature requests are welcome! Please read the context
 ## 👤 Author
 
 **Simone Livraghi** - AI Systems Engineer & Software Architect
-- LinkedIn: [simonelivraghi](https://linkedin.com/in/simonelivraghi)
-- GitHub: [simonelivraghi](https://github.com/simonelivraghi)
+- LinkedIn: [Simone Livraghi](https://linkedin.com/in/slivraghi)
+- GitHub: [Simone Livraghi](https://github.com/simone82)
 - Location: Milan, Italy
 
 ---

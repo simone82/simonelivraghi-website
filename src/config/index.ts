@@ -18,7 +18,7 @@ export const PERSONAL_INFO = {
   location: 'Milan, Italy',
   email: 'simone.livraghi@gmail.com',
   linkedin: 'https://www.linkedin.com/in/slivraghi',
-  github: 'https://github.com/simonelivraghi',
+  github: 'https://github.com/simone82',
   bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
 } as const
 

@@ -68,6 +68,7 @@ import type { NavigationItem as NavItem } from '@/types'
 const navigationItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'about', label: 'About', href: '#about' },
+  { id: 'ai-coding', label: 'AI Coding', href: '#ai-coding' },
   { id: 'skills', label: 'Skills', href: '#skills' },
   { id: 'experience', label: 'Experience', href: '#experience' },
   { id: 'projects', label: 'Projects', href: '#projects' },
