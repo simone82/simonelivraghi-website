@@ -127,15 +127,7 @@ export default {
 
   // Safelist important classes that might be used dynamically
   safelist: [
-    // Theme classes
-    'data-theme-light',
-    'data-theme-dark',
-    'data-theme-auto',
-    // Dynamic color classes
-    {
-      pattern: /^md-(light|dark)-.+$/,
-    },
-    // Animation classes
+    // Animation classes that might be applied dynamically
     'animate-fade-in',
     'animate-slide-up',
     'animate-bounce-gentle',
