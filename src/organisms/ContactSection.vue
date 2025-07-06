@@ -138,7 +138,7 @@ const personalInfo: PersonalInfo = {
   name: 'Simone Livraghi',
   title: 'AI Systems Engineer & Software Architect',
   location: 'Milan, Italy',
-  email: 'simone@example.com',
+  email: 'simone.livraghi@gmail.com',
   linkedin: 'https://www.linkedin.com/in/slivraghi',
   github: 'https://github.com/simonelivraghi',
   bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
