@@ -49,13 +49,29 @@ export interface Project {
   image?: string
 }
 
-export interface Certification {
-  name: string
-  issuer: string
-  year: string
+export interface Education {
+  degree: string
+  institution: string
+  location: string
+  period: string
+  grade?: string
+  thesis?: string
   description: string
+}
+
+export interface Certification {
+  title: string
+  description: string
+  skills?: string[]
+  location?: string
+  special?: boolean
   credentialId?: string
   verifyLink?: string
+}
+
+export interface CertificationProvider {
+  name: string
+  certifications: Certification[]
 }
 
 export interface Value {
