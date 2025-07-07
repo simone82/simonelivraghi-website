@@ -5,7 +5,7 @@
 
 // Analytics Configuration
 export const ANALYTICS_CONFIG = {
-  googleAnalyticsId: 'G-G6TPHSNZ26',
+  googleAnalyticsId: 'G-3JB77ZVK7Z',
   trackingEnabled: true,
   anonymizeIp: true,
   allowGoogleSignals: false,

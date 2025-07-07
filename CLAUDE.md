@@ -153,7 +153,7 @@ The project includes a comprehensive GDPR compliance system implemented through:
 ### Analytics Integration with Consent
 - **Conditional Loading**: Google Analytics script loads only after user consent
 - **Privacy Configuration**: IP anonymization and data sharing disabled by default
-- **Tracking ID**: `G-G6TPHSNZ26` configured in `/src/config/index.ts`
+- **Tracking ID**: `G-3JB77ZVK7Z` configured in `/src/config/index.ts`
 - **Event Tracking**: Page views and interactions tracked only with consent
 - **Fallback**: Silent failure when analytics unavailable or blocked
 
@@ -218,7 +218,7 @@ The project uses a centralized configuration system for maintainable settings:
 
 ### Configuration Structure
 - **Main Config**: `/src/config/index.ts` - Environment-dependent settings
-- **Google Analytics**: Tracking ID `G-G6TPHSNZ26` with privacy settings
+- **Google Analytics**: Tracking ID `G-3JB77ZVK7Z` with privacy settings
 - **Contact Forms**: Google Forms integration URLs and field mappings
 - **Theme Settings**: Material Design 3 token configurations
 - **Build Settings**: Vite configuration with optimizations and path aliases
