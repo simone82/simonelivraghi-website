@@ -51,6 +51,8 @@
                 :href="personalInfo.linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
+                tracking-label="View Full CV on LinkedIn"
+                tracking-section="about"
               >
                 View Full CV on LinkedIn
               </BaseButton>
@@ -59,6 +61,8 @@
                 tag="a"
                 href="/cv-20250706.pdf"
                 download="Simone_Livraghi_CV.pdf"
+                tracking-label="Download CV"
+                tracking-section="about"
               >
                 Download CV
               </BaseButton>

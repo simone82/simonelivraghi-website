@@ -76,6 +76,71 @@ export const useAnalytics = () => {
     trackEvent('section_view', 'navigation', sectionName)
   }
 
+  // Track button clicks with detailed information
+  const trackButtonClick = (buttonText: string, buttonType: string, section?: string) => {
+    trackEvent(
+      'button_click',
+      'engagement',
+      `${buttonType}:${buttonText}${section ? `@${section}` : ''}`
+    )
+  }
+
+  // Track navigation clicks
+  const trackNavigationClick = (destination: string) => {
+    trackEvent('nav_click', 'navigation', destination)
+  }
+
+  // Track theme toggle
+  const trackThemeToggle = (newTheme: string) => {
+    trackEvent('theme_toggle', 'preferences', newTheme)
+  }
+
+  // Track skill tag clicks (for interaction measurement)
+  const trackSkillInteraction = (skillName: string) => {
+    trackEvent('skill_interaction', 'engagement', skillName)
+  }
+
+  // Track card interactions
+  const trackCardInteraction = (cardType: string, cardTitle?: string) => {
+    trackEvent('card_interaction', 'engagement', cardTitle ? `${cardType}:${cardTitle}` : cardType)
+  }
+
+  // Track contact form field interactions
+  const trackFormFieldFocus = (fieldName: string) => {
+    trackEvent('form_field_focus', 'engagement', fieldName)
+  }
+
+  // Track contact form validation errors
+  const trackFormValidationError = (fieldName: string, errorType: string) => {
+    trackEvent('form_validation_error', 'form_error', `${fieldName}:${errorType}`)
+  }
+
+  // Track lead generation (successful contact form submission)
+  const trackLead = (source: string = 'contact_form') => {
+    try {
+      if (!isGtagAvailable()) return
+
+      // Track as conversion event for Google Analytics
+      window.gtag('event', 'generate_lead', {
+        event_category: 'conversion',
+        event_label: source,
+        value: 1,
+      })
+
+      // Also track as custom contact event
+      trackContactFormSubmission(true)
+    } catch (error) {
+      if (error instanceof Error) {
+        handleAnalyticsError(error)
+      }
+    }
+  }
+
+  // Track scroll depth for engagement measurement
+  const trackScrollDepth = (depth: number, section?: string) => {
+    trackEvent('scroll_depth', 'engagement', section ? `${section}:${depth}%` : `${depth}%`, depth)
+  }
+
   return {
     isGtagAvailable,
     trackPageView,
@@ -84,5 +149,14 @@ export const useAnalytics = () => {
     trackCVDownload,
     trackExternalLink,
     trackSectionView,
+    trackButtonClick,
+    trackNavigationClick,
+    trackThemeToggle,
+    trackSkillInteraction,
+    trackCardInteraction,
+    trackFormFieldFocus,
+    trackFormValidationError,
+    trackLead,
+    trackScrollDepth,
   }
 }

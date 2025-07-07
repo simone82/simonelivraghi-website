@@ -28,6 +28,7 @@
                 placeholder="Your full name"
                 required
                 :error="errors.name"
+                @focus="trackFormFieldFocus('name')"
               />
               <BaseInput
                 id="email"
@@ -37,6 +38,7 @@
                 placeholder="your.email@example.com"
                 required
                 :error="errors.email"
+                @focus="trackFormFieldFocus('email')"
               />
             </div>
 
@@ -46,6 +48,7 @@
               label="Company"
               placeholder="Your company (optional)"
               :error="errors.company"
+              @focus="trackFormFieldFocus('company')"
             />
 
             <BaseInput
@@ -55,6 +58,7 @@
               placeholder="What's this about?"
               required
               :error="errors.subject"
+              @focus="trackFormFieldFocus('subject')"
             />
 
             <BaseTextarea
@@ -65,10 +69,18 @@
               :rows="6"
               required
               :error="errors.message"
+              @focus="trackFormFieldFocus('message')"
             />
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <BaseButton type="submit" size="lg" :disabled="isSubmitting" class="sm:w-auto">
+              <BaseButton
+                type="submit"
+                size="lg"
+                :disabled="isSubmitting"
+                class="sm:w-auto"
+                tracking-label="Send Message"
+                tracking-section="contact"
+              >
                 {{ isSubmitting ? 'Sending...' : 'Send Message' }}
               </BaseButton>
 
@@ -78,6 +90,8 @@
                 size="lg"
                 :disabled="isSubmitting"
                 class="sm:w-auto"
+                tracking-label="Clear Form"
+                tracking-section="contact"
                 @click="resetForm"
               >
                 Clear Form
@@ -105,6 +119,7 @@
               :href="`mailto:${personalInfo.email}`"
               class="p-2 rounded-lg hover:bg-md-light-surface-container dark:hover:bg-md-dark-surface-container transition-all duration-200 hover:scale-110"
               aria-label="Send Email"
+              @click="trackExternalLink(`mailto:${personalInfo.email}`, 'Email Contact')"
             >
               <BrandLogo brand="gmail" size="lg" />
               <span class="sr-only">Email</span>
@@ -115,6 +130,7 @@
               rel="noopener noreferrer"
               class="p-2 rounded-lg hover:bg-md-light-surface-container dark:hover:bg-md-dark-surface-container transition-all duration-200 hover:scale-110"
               aria-label="LinkedIn Profile"
+              @click="trackExternalLink(personalInfo.linkedin, 'LinkedIn Contact')"
             >
               <BrandLogo brand="linkedin" size="lg" />
               <span class="sr-only">LinkedIn</span>
@@ -134,8 +150,11 @@ import BaseButton from '@/atoms/BaseButton.vue'
 import BrandLogo from '@/atoms/BrandLogo.vue'
 import { PERSONAL_INFO, CONTACT_FORM_CONFIG } from '@/config'
 import { handleFormError } from '@/utils/errorHandler'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 const personalInfo = PERSONAL_INFO
+const { trackFormFieldFocus, trackFormValidationError, trackLead, trackExternalLink } =
+  useAnalytics()
 
 // Form state
 const form = reactive({
@@ -169,24 +188,29 @@ const validateForm = () => {
 
   if (!form.name.trim()) {
     errors.name = 'Full name is required'
+    trackFormValidationError('name', 'required')
     isValid = false
   }
 
   if (!form.email.trim()) {
     errors.email = 'E-mail is required'
+    trackFormValidationError('email', 'required')
     isValid = false
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
     errors.email = 'Please enter a valid email address'
+    trackFormValidationError('email', 'invalid_format')
     isValid = false
   }
 
   if (!form.subject.trim()) {
     errors.subject = 'Subject is required'
+    trackFormValidationError('subject', 'required')
     isValid = false
   }
 
   if (!form.message.trim()) {
     errors.message = 'Question is required'
+    trackFormValidationError('message', 'required')
     isValid = false
   }
 
@@ -219,6 +243,10 @@ const handleSubmit = async () => {
     // We'll assume success if no error is thrown
     submitStatus.value = 'success'
     submitMessage.value = "Thank you for your message! I'll get back to you soon."
+
+    // Track successful lead generation
+    trackLead('contact_form')
+
     resetForm()
   } catch (error) {
     const errorMessage =

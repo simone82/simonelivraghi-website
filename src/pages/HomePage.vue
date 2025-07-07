@@ -22,4 +22,8 @@ import ProjectsSection from '@/organisms/ProjectsSection.vue'
 import CertificationsSection from '@/organisms/CertificationsSection.vue'
 import ValuesSection from '@/organisms/ValuesSection.vue'
 import ContactSection from '@/organisms/ContactSection.vue'
+import { useSectionTracking } from '@/composables/useSectionTracking'
+
+// Initialize section view tracking
+useSectionTracking()
 </script>

@@ -13,7 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 interface Props {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
@@ -22,6 +23,8 @@ interface Props {
   href?: string
   to?: string | object
   tag?: string
+  trackingLabel?: string
+  trackingSection?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,11 +34,16 @@ const props = withDefaults(defineProps<Props>(), {
   href: undefined,
   to: undefined,
   tag: 'button',
+  trackingLabel: undefined,
+  trackingSection: undefined,
 })
 
 const emit = defineEmits<{
   click: [event: Event]
 }>()
+
+const slots = useSlots()
+const { trackButtonClick, trackExternalLink } = useAnalytics()
 
 const buttonClasses = computed(() => {
   const baseClasses =
@@ -70,6 +78,22 @@ const buttonClasses = computed(() => {
 
 const handleClick = (event: Event) => {
   if (!props.disabled) {
+    // Get button text from slot content or tracking label
+    const buttonText =
+      props.trackingLabel || (slots.default?.()[0]?.children as string) || 'Unknown Button'
+
+    // Track button click with analytics
+    trackButtonClick(buttonText, props.variant, props.trackingSection)
+
+    // Track external links separately
+    if (
+      props.href &&
+      (props.href.startsWith('http') || props.href.startsWith('//')) &&
+      !props.href.includes('simonelivraghi.com')
+    ) {
+      trackExternalLink(props.href, buttonText)
+    }
+
     emit('click', event)
   }
 }
