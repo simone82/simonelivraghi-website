@@ -190,20 +190,19 @@
                 development—leveraging AI as a real partner, not just a tool.
               </p>
             </BaseCard>
-
-            <!-- Call to Action -->
-            <BaseCard
-              class="p-8 text-center bg-gradient-to-br from-md-light-primary/10 to-md-light-secondary/10 dark:from-md-dark-primary/10 dark:to-md-dark-secondary/10 border-2 border-md-light-primary/20 dark:border-md-dark-primary/20"
-              :hover="true"
-            >
-              <p class="text-xl font-bold text-md-light-primary dark:text-md-dark-primary mb-3">
-                Ready to stop coding by vibes and start building with context and memory?
-              </p>
-              <p class="text-lg text-md-light-on-surface dark:text-md-dark-on-surface">
-                Let's make your next project truly intelligent.
-              </p>
-            </BaseCard>
           </div>
+        </div>
+
+        <!-- Closing Text -->
+        <div class="mt-16 text-center max-w-4xl mx-auto">
+          <p
+            class="text-2xl md:text-3xl font-bold text-md-light-primary dark:text-md-dark-primary mb-4"
+          >
+            Ready to stop coding by vibes and start building with context and memory?
+          </p>
+          <p class="text-xl md:text-2xl text-md-light-on-surface dark:text-md-dark-on-surface">
+            Let's make your next project truly intelligent.
+          </p>
         </div>
       </div>
     </div>

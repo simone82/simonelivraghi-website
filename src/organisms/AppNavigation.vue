@@ -66,7 +66,6 @@ import { useScrollSpy } from '@/composables/useScrollSpy'
 import type { NavigationItem as NavItem } from '@/types'
 
 const navigationItems: NavItem[] = [
-  { id: 'home', label: 'Home', href: '#home' },
   { id: 'about', label: 'About', href: '#about' },
   { id: 'ai-coding', label: 'AI Coding', href: '#ai-coding' },
   { id: 'skills', label: 'Skills', href: '#skills' },
@@ -77,7 +76,7 @@ const navigationItems: NavItem[] = [
   { id: 'contact', label: 'Contact', href: '#contact' },
 ]
 
-const sectionIds = navigationItems.map(item => item.id)
+const sectionIds = ['home', ...navigationItems.map(item => item.id)]
 const { activeSection, isScrolled, scrollToSection } = useScrollSpy(sectionIds)
 
 const mobileMenuOpen = ref(false)
