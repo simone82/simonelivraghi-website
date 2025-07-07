@@ -11,7 +11,7 @@
           About Me
         </h2>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
           <!-- Content -->
           <div class="space-y-6">
             <div class="prose prose-lg max-w-none">
