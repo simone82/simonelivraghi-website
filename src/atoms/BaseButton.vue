@@ -39,15 +39,15 @@ const emit = defineEmits<{
 
 const buttonClasses = computed(() => {
   const baseClasses =
-    'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
+    'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 transform active:scale-95'
 
   const variantClasses = {
     primary: 'btn-primary',
     secondary: 'btn-secondary',
     outline:
-      'border-2 border-md-light-outline dark:border-md-dark-outline text-md-light-primary dark:text-md-dark-primary hover:bg-md-light-primary hover:text-md-light-on-primary dark:hover:bg-md-dark-primary dark:hover:text-md-dark-on-primary',
+      'border-2 border-md-light-outline dark:border-md-dark-outline text-md-light-primary dark:text-md-dark-primary hover:bg-md-light-primary hover:text-md-light-on-primary dark:hover:bg-md-dark-primary dark:hover:text-md-dark-on-primary hover:border-md-light-primary dark:hover:border-md-dark-primary hover:shadow-md',
     ghost:
-      'text-md-light-primary dark:text-md-dark-primary hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high',
+      'text-md-light-primary dark:text-md-dark-primary hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high hover:shadow-sm',
   }
 
   const sizeClasses = {
@@ -56,7 +56,9 @@ const buttonClasses = computed(() => {
     lg: 'px-8 py-4 text-lg',
   }
 
-  const disabledClasses = props.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+  const disabledClasses = props.disabled
+    ? 'opacity-50 cursor-not-allowed active:scale-100'
+    : 'cursor-pointer hover:-translate-y-0.5 hover:shadow-lg'
 
   return [
     baseClasses,

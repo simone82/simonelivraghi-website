@@ -95,9 +95,11 @@
     @apply px-6 py-3 rounded-lg font-medium;
     @apply hover:bg-md-light-primary-container hover:text-md-light-on-primary-container;
     @apply dark:hover:bg-md-dark-primary-container dark:hover:text-md-dark-on-primary-container;
-    @apply transition-all duration-200;
+    @apply transition-all duration-300;
     @apply focus:ring-2 focus:ring-offset-2 focus:ring-md-light-primary;
     @apply dark:focus:ring-md-dark-primary;
+    @apply hover:shadow-lg hover:-translate-y-0.5;
+    @apply active:scale-95 active:translate-y-0;
   }
 
   .btn-secondary {
@@ -106,7 +108,9 @@
     @apply px-6 py-3 rounded-lg font-medium;
     @apply hover:bg-md-light-secondary-container hover:text-md-light-on-secondary-container;
     @apply dark:hover:bg-md-dark-secondary-container dark:hover:text-md-dark-on-secondary-container;
-    @apply transition-all duration-200;
+    @apply transition-all duration-300;
+    @apply hover:shadow-lg hover:-translate-y-0.5;
+    @apply active:scale-95 active:translate-y-0;
   }
 
   .card {
@@ -115,12 +119,13 @@
     @apply rounded-2xl p-6 shadow-lg;
     @apply border border-md-light-outline-variant;
     @apply dark:border-md-dark-outline-variant;
-    @apply transition-all duration-200;
+    @apply transition-all duration-300;
   }
 
   .card:hover {
     @apply bg-md-light-surface-container-high;
     @apply dark:bg-md-dark-surface-container-high;
     @apply shadow-xl;
+    @apply -translate-y-1;
   }
 }

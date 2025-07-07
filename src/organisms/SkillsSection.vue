@@ -30,7 +30,7 @@
               <span
                 v-for="skill in category.skills"
                 :key="skill"
-                class="inline-flex items-center px-3 py-1 text-xs font-medium bg-md-light-surface-container dark:bg-md-dark-surface-container text-md-light-on-surface dark:text-md-dark-on-surface rounded-full hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high transition-colors duration-200"
+                class="inline-flex items-center px-3 py-1 text-xs font-medium bg-md-light-surface-container dark:bg-md-dark-surface-container text-md-light-on-surface dark:text-md-dark-on-surface rounded-full hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high transition-all duration-300 hover:scale-105 hover:shadow-md"
               >
                 {{ skill }}
               </span>
