@@ -212,13 +212,22 @@ async function safeAsync<T>(
 - **Development vs Production**: Detailed errors in development, user-friendly in production
 - **Analytics Error Tracking**: Non-blocking error reporting to analytics when consent given
 
+## Analytics Implementation
+
+For comprehensive analytics documentation, implementation details, and debugging guidance, please refer to **[ANALYTICS.md](./ANALYTICS.md)**. This includes:
+- Complete GA4 implementation architecture
+- GDPR compliance and privacy settings
+- Event tracking taxonomy and methods
+- Debugging and troubleshooting guide
+- Testing and maintenance procedures
+
 ## Configuration Management
 
 The project uses a centralized configuration system for maintainable settings:
 
 ### Configuration Structure
 - **Main Config**: `/src/config/index.ts` - Environment-dependent settings
-- **Google Analytics**: Tracking ID `G-3JB77ZVK7Z` with privacy settings
+- **Google Analytics**: Tracking ID `G-3JB77ZVK7Z` with privacy settings (see ANALYTICS.md for details)
 - **Contact Forms**: Google Forms integration URLs and field mappings
 - **Theme Settings**: Material Design 3 token configurations
 - **Build Settings**: Vite configuration with optimizations and path aliases
@@ -307,6 +316,8 @@ Full MD3 color system implemented with TailwindCSS integration:
 ## Development Commands
 
 ⚠️ **CRITICAL REMINDER**: Before ANY content modification, ALWAYS verify against `./public/cv-20250706.pdf` using the `mcp__pdf-reader__read_pdf` tool. No exceptions.
+
+📊 **ANALYTICS NOTE**: For analytics implementation details, debugging, and event tracking guidance, see [ANALYTICS.md](./ANALYTICS.md).
 
 ```bash
 # Start development server (runs on localhost:5173)
