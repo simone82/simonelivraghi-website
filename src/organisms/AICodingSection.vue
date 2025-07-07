@@ -173,9 +173,9 @@
               </div>
             </BaseCard>
 
-            <!-- Call to Action -->
+            <!-- Context Engineering Benefits -->
             <BaseCard
-              class="p-6 text-center bg-md-light-primary-container/30 dark:bg-md-dark-primary-container/30"
+              class="p-6 text-center bg-md-light-primary-container/20 dark:bg-md-dark-primary-container/20"
               :hover="true"
             >
               <h3
@@ -183,16 +183,23 @@
               >
                 Context Engineering + Memory = True Augmented Intelligence
               </h3>
-              <p class="text-md-light-on-surface dark:text-md-dark-on-surface leading-relaxed mb-6">
+              <p class="text-md-light-on-surface dark:text-md-dark-on-surface leading-relaxed">
                 By investing in context engineering and agent memory design, you create AI-augmented
                 teams that are resilient, intelligent, and ready for production. This is how you
                 move from ad-hoc, improvisational coding to systematic, professional software
                 development—leveraging AI as a real partner, not just a tool.
               </p>
-              <p class="text-lg font-semibold text-md-light-primary dark:text-md-dark-primary">
+            </BaseCard>
+
+            <!-- Call to Action -->
+            <BaseCard
+              class="p-8 text-center bg-gradient-to-br from-md-light-primary/10 to-md-light-secondary/10 dark:from-md-dark-primary/10 dark:to-md-dark-secondary/10 border-2 border-md-light-primary/20 dark:border-md-dark-primary/20"
+              :hover="true"
+            >
+              <p class="text-xl font-bold text-md-light-primary dark:text-md-dark-primary mb-3">
                 Ready to stop coding by vibes and start building with context and memory?
               </p>
-              <p class="text-md-light-on-surface dark:text-md-dark-on-surface mt-2">
+              <p class="text-lg text-md-light-on-surface dark:text-md-dark-on-surface">
                 Let's make your next project truly intelligent.
               </p>
             </BaseCard>

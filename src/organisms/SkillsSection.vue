@@ -19,16 +19,23 @@
           AI-driven platforms for global enterprises.
         </p>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <BaseCard
-            v-for="category in skillCategories"
-            :key="category.title"
-            variant="default"
-            :hover="true"
-            class="p-6"
-          >
-            <SkillCategory :category="category" />
-          </BaseCard>
+        <div class="space-y-8">
+          <div v-for="category in skillCategories" :key="category.title" class="space-y-3">
+            <h3
+              class="text-lg font-semibold text-md-light-primary dark:text-md-dark-primary border-b border-md-light-outline/20 dark:border-md-dark-outline/20 pb-2"
+            >
+              {{ category.title }}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="skill in category.skills"
+                :key="skill"
+                class="inline-flex items-center px-3 py-1 text-xs font-medium bg-md-light-surface-container dark:bg-md-dark-surface-container text-md-light-on-surface dark:text-md-dark-on-surface rounded-full hover:bg-md-light-surface-container-high dark:hover:bg-md-dark-surface-container-high transition-colors duration-200"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
         </div>
 
         <div class="mt-12 text-center">
@@ -42,8 +49,6 @@
 </template>
 
 <script setup lang="ts">
-import BaseCard from '@/atoms/BaseCard.vue'
-import SkillCategory from '@/molecules/SkillCategory.vue'
 import { skillCategories } from '@/data/skills'
 import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
