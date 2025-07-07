@@ -4,6 +4,50 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Rules
 
+### CV Content Verification and Accuracy (CRITICAL)
+- **MANDATORY CV Verification**: ALL website content MUST be verified against `./public/cv-20250706.pdf` before any content changes
+- **100% Content Accuracy Requirement**: Every piece of professional information, experience, skill, achievement, certification, or personal detail on the website MUST match exactly what is documented in the CV
+- **Zero Tolerance for Inaccuracies**: No fictional content, exaggerated claims, or unverified information is permitted anywhere on the website
+- **CV as Single Source of Truth**: The CV file serves as the authoritative reference for all professional content decisions
+
+#### CV Verification Protocol (MANDATORY PROCESS)
+1. **Before ANY content modification**: Use `mcp__pdf-reader__read_pdf` tool to access and read the CV content
+2. **Content Cross-Verification**: Compare ALL proposed content changes against specific CV sections
+3. **Evidence-Based Content**: Every claim, skill, experience, or achievement must have corresponding evidence in the CV
+4. **Accuracy Over SEO**: If there's conflict between SEO optimization and CV accuracy, ALWAYS choose accuracy
+5. **Stop Execution Rule**: If CV cannot be accessed, STOP all content-related work immediately and request user guidance
+
+#### Specific Content Areas Requiring CV Verification
+- **Professional Title**: Must exactly match CV job title format ("AI Systems Engineer & Software Architect")
+- **Current Role**: Must reflect actual current position (AI Software Development Lifecycle Lead at Globant)
+- **Years of Experience**: Must match CV timeline calculations (15+ years verified from CV dates)
+- **Technical Skills**: Only include technologies, frameworks, and tools explicitly mentioned in CV
+- **Certifications**: Only list certifications that appear in the CV with correct issuing organizations
+- **Project Experience**: Only reference projects and achievements documented in the CV
+- **Education**: Must match alma mater and credentials exactly as listed in CV (Università degli Studi di Pavia)
+- **Geographic Information**: Must match current location and work locations from CV
+- **Company Names**: Must use exact company names and role titles as they appear in CV
+- **Achievement Statistics**: All numerical claims must be verifiable from CV content
+
+#### Content Accuracy Validation Checklist
+- [ ] CV has been read and parsed using the PDF reader tool
+- [ ] All professional claims cross-referenced against CV sections
+- [ ] No content added that cannot be verified in the CV
+- [ ] Job titles match CV formatting exactly
+- [ ] Company names and roles are accurate
+- [ ] Technical skills align with CV skill sections
+- [ ] Years of experience calculations are correct
+- [ ] Certifications match CV credentials
+- [ ] Geographic and location information is accurate
+- [ ] Achievement metrics are CV-verifiable
+
+#### Enforcement Guidelines
+- **Content Reviews**: Every content-related pull request must include CV verification evidence
+- **SEO Limitations**: SEO keywords and descriptions must be constrained to CV-verifiable information
+- **Marketing Copy**: All marketing language must be grounded in documented CV achievements
+- **User Interface Text**: Even UI copy that references professional details must be CV-accurate
+- **Meta Tags and Structured Data**: All metadata must reflect only CV-verified information
+
 ### Atomic Design Principles
 - **Always apply atomic design methodology** when creating or refactoring components
 - **Component Hierarchy**: Atoms → Molecules → Organisms → Templates → Pages
@@ -262,6 +306,8 @@ Full MD3 color system implemented with TailwindCSS integration:
 
 ## Development Commands
 
+⚠️ **CRITICAL REMINDER**: Before ANY content modification, ALWAYS verify against `./public/cv-20250706.pdf` using the `mcp__pdf-reader__read_pdf` tool. No exceptions.
+
 ```bash
 # Start development server (runs on localhost:5173)
 npm run dev
@@ -426,3 +472,22 @@ src/
 - **Output**: Static files in `dist/` directory
 - **Hosting**: Compatible with Vercel, Netlify, GitHub Pages, any static hosting
 - **Environment**: No environment variables or backend dependencies
+
+---
+
+## 🔒 CONTENT ACCURACY ENFORCEMENT
+
+**THIS IS THE MOST CRITICAL PROJECT RULE**
+
+Before making ANY content changes to this website:
+
+1. ✅ **MUST**: Read CV using `mcp__pdf-reader__read_pdf` with path `./public/cv-20250706.pdf`
+2. ✅ **MUST**: Verify ALL content against CV facts
+3. ✅ **MUST**: Choose accuracy over SEO optimization when conflicts arise
+4. ❌ **NEVER**: Add unverified professional claims
+5. ❌ **NEVER**: Exaggerate experience or skills
+6. ❌ **NEVER**: Use fictional achievements or projects
+
+**Violation of this rule is considered a critical project failure.**
+
+The CV file at `./public/cv-20250706.pdf` is the single source of truth for all professional content on this website. This ensures 100% accuracy and prevents any misrepresentation of qualifications, experience, or capabilities.
