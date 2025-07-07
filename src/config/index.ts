@@ -19,7 +19,7 @@ export const PERSONAL_INFO = {
   email: 'simone.livraghi@gmail.com',
   linkedin: 'https://www.linkedin.com/in/slivraghi',
   github: 'https://github.com/simone82',
-  bio: 'Experienced AI Systems Engineer and Software Architect with 15+ years in the technology industry.',
+  bio: 'Experienced AI Systems Engineer and Software Architect with 15+ years in the technology industry. Currently AI Software Development Lifecycle Lead at Globant.',
 } as const
 
 // Google Forms Configuration
@@ -49,19 +49,19 @@ export const COOKIE_CONFIG = {
 
 // Application Configuration
 export const APP_CONFIG = {
-  title: 'Simone Livraghi - Distinguished AI Systems Engineer & Context Engineering Expert',
+  title: 'Simone Livraghi - Distinguished AI Systems Engineer & Software Architect Expert',
   description:
-    'Distinguished AI Systems Engineer and recognized Context Engineering Expert. 15+ years experience in enterprise AI transformation, serving 2M+ users globally with cutting-edge AI solutions.',
+    'AI Systems Engineer & Software Architect with 15+ years expertise in distributed systems and AI-driven platforms. Currently AI Software Development Lifecycle Lead at Globant. Expert in microservices, Kafka, Kubernetes, and FIFA+ platform architecture.',
   author: 'Simone Livraghi',
   keywords: [
-    'Context Engineering',
     'AI Systems Engineer',
-    'Enterprise AI',
-    'AI-Augmented Development',
-    'LLM Agent Memory',
-    'Software Architecture',
-    'AI Transformation',
-    'Professional AI Consultant',
+    'Software Architect',
+    'AI Software Development Lifecycle',
+    'LangChain',
+    'Apache Kafka',
+    'Kubernetes',
+    'FIFA+ Platform',
+    'Microservices Architecture',
   ],
   language: 'en',
   locale: 'en_US',

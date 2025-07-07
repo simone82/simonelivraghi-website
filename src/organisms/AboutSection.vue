@@ -18,25 +18,28 @@
               <p
                 class="text-lg text-md-light-on-surface dark:text-md-dark-on-surface leading-relaxed"
               >
-                I'm an experienced <strong>AI Systems Engineer</strong> and <strong>Software Architect</strong>
-                with over 15 years in the technology industry. My passion lies in designing and
-                implementing innovative AI-driven solutions that solve complex business challenges.
+                I'm a highly experienced <strong>AI Systems Engineer</strong> and
+                <strong>Software Architect</strong>
+                with 15+ years of expertise in designing and implementing distributed,
+                high-scalability architectures and AI-driven platforms.
               </p>
 
               <p
                 class="text-lg text-md-light-on-surface dark:text-md-dark-on-surface leading-relaxed"
               >
-                Throughout my career, I've led cross-functional teams, architected scalable systems,
-                and delivered cutting-edge AI applications across various industries. My expertise
-                spans from low-level system design to high-level architecture.
+                Currently serving as AI Software Development Lifecycle Lead at Globant, I specialize
+                in microservices, event-driven architectures, big data pipelines, and enterprise AI
+                agentic systems. My work includes architecting the FIFA+ platform serving millions
+                of users globally.
               </p>
 
               <p
                 class="text-lg text-md-light-on-surface dark:text-md-dark-on-surface leading-relaxed"
               >
-                I believe in continuous learning and staying at the forefront of technological
-                advancement. When I'm not coding or architecting systems, you'll find me exploring
-                the latest AI research papers and mentoring aspiring engineers.
+                My expertise includes integrating AI-powered development tools like LangChain,
+                LangGraph, and Model Context Protocol (MCP) services. I hold Google Widevine
+                certification for modular DRM and DASH streaming, obtained at Google headquarters in
+                Kirkland, WA.
               </p>
             </div>
 
@@ -100,15 +103,15 @@ const personalInfo: PersonalInfo = {
   email: 'simone.livraghi@gmail.com',
   linkedin: 'https://www.linkedin.com/in/slivraghi',
   github: 'https://github.com/simone82',
-  bio: 'Experienced AI Systems Engineer and Software Architect with over 10 years in the technology industry.',
+  bio: 'Experienced AI Systems Engineer and Software Architect with over 15 years in the technology industry.',
 }
 
 const statistics = [
   { value: '15+', label: 'Years Experience' },
-  { value: '2M+', label: 'Users Served' },
-  { value: '50+', label: 'Enterprise Solutions' },
-  { value: '15+', label: 'Teams Led' },
-  { value: '10+', label: 'AI Certifications' },
-  { value: '5+', label: 'Industries Served' },
+  { value: 'FIFA+', label: 'Platform Architect' },
+  { value: 'Globant', label: 'AI Lifecycle Lead' },
+  { value: 'Widevine', label: 'Google Certified' },
+  { value: '10+', label: 'AI Tools Integrated' },
+  { value: 'Milan', label: 'Based In Italy' },
 ]
 </script>
