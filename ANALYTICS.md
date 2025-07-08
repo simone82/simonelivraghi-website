@@ -49,13 +49,65 @@ User Visit → Cookie Consent Check → User Accepts → bootstrap() → Automat
 
 ## What Gets Tracked
 
-### Automatic Tracking Only
-- **Page Views**: Automatically tracked on route changes
-- **Basic Session Data**: GA4 default metrics
-- **No Custom Events**: All manual tracking removed
-- **No User Interactions**: No button clicks, form submissions, etc.
+### Automatic Tracking
+- **Page Views**: Automatically tracked on route changes via vue-gtag router integration
+- **Basic Session Data**: GA4 default metrics (sessions, users, bounce rate, etc.)
+
+### Custom Events (New Implementation)
+Three custom events are tracked with GDPR compliance and session-based deduplication:
+
+#### 1. Section View Events (`section_view`)
+- **Trigger**: When a section becomes 50%+ visible in viewport
+- **Frequency**: Once per session per section
+- **Parameters**:
+  - `custom_parameter_section_id`: Unique section identifier
+
+#### 2. Button View Events (`button_view`) 
+- **Trigger**: When a designated button becomes 50%+ visible
+- **Frequency**: Once per session per button
+- **Parameters**:
+  - `custom_parameter_section_id`: Section containing the button
+  - `custom_parameter_button_id`: Unique button identifier
+  - `custom_parameter_button_text`: Visible button text
+
+#### 3. Button Click Events (`button_click`)
+- **Trigger**: When a tracked button is clicked
+- **Frequency**: Every click (no deduplication)
+- **Parameters**:
+  - `custom_parameter_section_id`: Section containing the button
+  - `custom_parameter_button_id`: Unique button identifier
+  - `custom_parameter_button_text`: Visible button text
 
 ## Implementation Details
+
+### Custom Events Implementation
+
+#### Vue Directives for Easy Integration
+```vue
+<!-- Section tracking -->
+<section v-track-section="'hero'">...</section>
+
+<!-- Button tracking -->
+<BaseButton 
+  tracking-section-id="hero"
+  tracking-button-id="get-in-touch" 
+  tracking-button-text="Get in Touch"
+>
+  Get in Touch
+</BaseButton>
+```
+
+#### Implementation Files
+- **Composable**: `/src/composables/useCustomAnalytics.ts` - Core tracking logic
+- **Directives**: `/src/directives/analytics.ts` - Vue directives for easy integration
+- **Component**: `/src/atoms/BaseButton.vue` - Enhanced with tracking props
+
+#### Key Features
+- **GDPR Compliant**: Only tracks when analytics consent is given
+- **Session Deduplication**: View events (section_view, button_view) fire once per session
+- **Intersection Observer**: 50% visibility threshold for reliable tracking
+- **Error Handling**: Silent failures with detailed console logging
+- **Type Safety**: Full TypeScript support with proper interfaces
 
 ### Plugin Configuration
 ```typescript

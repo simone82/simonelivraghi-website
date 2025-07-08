@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="section relative overflow-hidden">
+  <section id="home" v-track-section="'hero'" class="section relative overflow-hidden">
     <div
       class="absolute inset-0 bg-gradient-to-br from-md-light-primary/5 to-md-light-secondary/5 dark:from-md-dark-primary/5 dark:to-md-dark-secondary/5"
     ></div>
@@ -47,13 +47,23 @@
         <!-- Call to Action Buttons -->
         <div class="animate-slide-up delay-300">
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <BaseButton size="lg" class="w-full sm:w-auto" @click="scrollToContact">
+            <BaseButton
+              size="lg"
+              class="w-full sm:w-auto"
+              tracking-section-id="hero"
+              tracking-button-id="get-in-touch"
+              tracking-button-text="Get in Touch"
+              @click="scrollToContact"
+            >
               Get in Touch
             </BaseButton>
             <BaseButton
               variant="outline"
               size="lg"
               class="w-full sm:w-auto"
+              tracking-section-id="hero"
+              tracking-button-id="view-my-work"
+              tracking-button-text="View My Work"
               @click="scrollToProjects"
             >
               View My Work

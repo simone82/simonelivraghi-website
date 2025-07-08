@@ -1,6 +1,7 @@
 <template>
   <component
     :is="tag"
+    v-track-button="trackingConfig || undefined"
     :class="buttonClasses"
     :disabled="disabled"
     :href="href"
@@ -22,6 +23,10 @@ interface Props {
   href?: string
   to?: string | object
   tag?: string
+  // Analytics tracking props
+  trackingSectionId?: string
+  trackingButtonId?: string
+  trackingButtonText?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -31,11 +36,27 @@ const props = withDefaults(defineProps<Props>(), {
   href: undefined,
   to: undefined,
   tag: 'button',
+  trackingSectionId: undefined,
+  trackingButtonId: undefined,
+  trackingButtonText: undefined,
 })
 
 const emit = defineEmits<{
   click: [event: Event]
 }>()
+
+// Analytics tracking configuration
+const trackingConfig = computed(() => {
+  // Only return config if all required tracking props are provided
+  if (props.trackingSectionId && props.trackingButtonId) {
+    return {
+      sectionId: props.trackingSectionId,
+      buttonId: props.trackingButtonId,
+      buttonText: props.trackingButtonText,
+    }
+  }
+  return undefined
+})
 
 const buttonClasses = computed(() => {
   const baseClasses =

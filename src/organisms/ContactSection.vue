@@ -1,6 +1,7 @@
 <template>
   <section
     id="contact"
+    v-track-section="'contact'"
     class="section bg-md-light-surface-container/30 dark:bg-md-dark-surface-container/30"
   >
     <div class="container">
@@ -68,7 +69,15 @@
             />
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <BaseButton type="submit" size="lg" :disabled="isSubmitting" class="sm:w-auto">
+              <BaseButton
+                type="submit"
+                size="lg"
+                :disabled="isSubmitting"
+                class="sm:w-auto"
+                tracking-section-id="contact"
+                tracking-button-id="send-message"
+                tracking-button-text="Send Message"
+              >
                 {{ isSubmitting ? 'Sending...' : 'Send Message' }}
               </BaseButton>
 
