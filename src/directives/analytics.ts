@@ -20,6 +20,10 @@ export const vTrackSection: Directive = {
       return
     }
 
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[Analytics Directive] Mounting v-track-section for: ${sectionId}`, el)
+    }
+
     const { observeSection } = useCustomAnalytics()
     observeSection(el, sectionId)
   },

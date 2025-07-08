@@ -8,9 +8,9 @@ import { event } from 'vue-gtag'
 import { useCookieConsent } from './useCookieConsent'
 import { handleAnalyticsError } from '@/utils/errorHandler'
 
-// Track which elements have already been viewed (per session)
-const viewedSections = new Set<string>()
-const viewedButtons = new Set<string>()
+// Track which elements have already been viewed (per session) - Global scope for sharing across directive instances
+const globalViewedSections = new Set<string>()
+const globalViewedButtons = new Set<string>()
 
 export interface CustomAnalyticsEvent {
   section_id: string
@@ -24,7 +24,15 @@ export const useCustomAnalytics = () => {
 
   // Check if analytics is available and consented
   const isAnalyticsAvailable = (): boolean => {
-    return typeof window !== 'undefined' && analyticsAllowed.value
+    const available = typeof window !== 'undefined' && analyticsAllowed.value
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Analytics] Analytics availability check:', {
+        windowExists: typeof window !== 'undefined',
+        analyticsAllowed: analyticsAllowed.value,
+        available,
+      })
+    }
+    return available
   }
 
   // Send custom event to vue-gtag
@@ -67,10 +75,22 @@ export const useCustomAnalytics = () => {
 
   // Track section view event
   const trackSectionView = (sectionId: string) => {
-    // Only track once per session
-    if (viewedSections.has(sectionId)) return
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[Analytics] trackSectionView called for: ${sectionId}`)
+      console.log(`[Analytics] Analytics available: ${isAnalyticsAvailable()}`)
+      console.log(`[Analytics] Already viewed: ${globalViewedSections.has(sectionId)}`)
+      console.log(`[Analytics] Global viewed sections:`, Array.from(globalViewedSections))
+    }
 
-    viewedSections.add(sectionId)
+    // Only track once per session using global state
+    if (globalViewedSections.has(sectionId)) {
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`[Analytics] Section already viewed this session: ${sectionId}`)
+      }
+      return
+    }
+
+    globalViewedSections.add(sectionId)
     trackCustomEvent('section_view', { section_id: sectionId })
   }
 
@@ -78,10 +98,10 @@ export const useCustomAnalytics = () => {
   const trackButtonView = (sectionId: string, buttonId: string, buttonText: string) => {
     const uniqueButtonKey = `${sectionId}:${buttonId}`
 
-    // Only track once per session
-    if (viewedButtons.has(uniqueButtonKey)) return
+    // Only track once per session using global state
+    if (globalViewedButtons.has(uniqueButtonKey)) return
 
-    viewedButtons.add(uniqueButtonKey)
+    globalViewedButtons.add(uniqueButtonKey)
     trackCustomEvent('button_view', {
       section_id: sectionId,
       button_id: buttonId,
@@ -121,19 +141,49 @@ export const useCustomAnalytics = () => {
 
   // Setup intersection observer for section tracking
   const observeSection = (element: HTMLElement, sectionId: string) => {
-    if (!element || !sectionId) return
+    if (!element || !sectionId) {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('[Analytics] observeSection called with invalid element or sectionId', {
+          element,
+          sectionId,
+        })
+      }
+      return
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[Analytics] Setting up section observer for: ${sectionId}`)
+    }
 
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          // Check if at least 50% of the section is visible
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          if (process.env.NODE_ENV === 'development') {
+            console.log(`[Analytics] Section intersection: ${sectionId}`, {
+              isIntersecting: entry.isIntersecting,
+              intersectionRatio: entry.intersectionRatio,
+              boundingClientRect: {
+                height: entry.boundingClientRect.height,
+                top: entry.boundingClientRect.top,
+                bottom: entry.boundingClientRect.bottom,
+              },
+              rootBounds: entry.rootBounds
+                ? {
+                    height: entry.rootBounds.height,
+                  }
+                : null,
+              willTrack: entry.isIntersecting && entry.intersectionRatio >= 0.3,
+            })
+          }
+
+          // Check if at least 30% of the section is visible (reduced from 50% for better tracking)
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
             trackSectionView(sectionId)
           }
         })
       },
       {
-        threshold: 0.5, // Trigger when 50% visible
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], // Multiple thresholds for debugging
         rootMargin: '0px',
       }
     )
