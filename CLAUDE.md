@@ -12,54 +12,73 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 #### Pre-Commit Quality Checklist (MANDATORY PROCESS)
 **BEFORE ANY GIT COMMIT, ALWAYS RUN ALL QUALITY CHECKS IN THIS EXACT ORDER:**
 
-1. **Type Checking**: `npm run type-check`
+1. **Auto-Formatting (WRITE MODE)**: `npm run format`
+   - ✅ MANDATORY: Apply Prettier formatting to ALL files
+   - ✅ Automatically fixes code formatting issues
+   - ✅ Ensures consistent code style across entire codebase
+   - ❌ NEVER skip this step - formatting is non-negotiable
+
+2. **Linting with Auto-Fix**: `npm run lint`
+   - ✅ MANDATORY: Apply ESLint auto-fixes including unused import removal
+   - ✅ Automatically removes unused imports and variables
+   - ✅ Fixes auto-correctable code style and quality issues
+   - ✅ MUST pass without any remaining ESLint errors or warnings
+   - ❌ STOP if any unfixable linting errors exist
+
+3. **Type Checking**: `npm run type-check`
    - ✅ MUST pass without any TypeScript errors
    - ✅ All type definitions must be correct and complete
    - ❌ STOP if any type errors exist
 
-2. **Linting**: `npm run lint`
-   - ✅ MUST pass without any ESLint errors or warnings
-   - ✅ Code style must be consistent and follow project standards
-   - ❌ STOP if any linting errors exist
+4. **Formatting Verification**: `npm run format:check`
+   - ✅ MUST pass Prettier formatting check after auto-formatting
+   - ✅ Verifies all files are properly formatted
+   - ❌ STOP if formatting inconsistencies remain (should never happen after step 1)
 
-3. **Code Formatting**: `npm run format:check`
-   - ✅ MUST pass Prettier formatting check
-   - ✅ If fails, run `npm run format` first, then recheck
-   - ❌ STOP if formatting is inconsistent
-
-4. **Security Audit**: `npm run audit`
+5. **Security Audit**: `npm run audit`
    - ✅ MUST pass security audit without moderate/high vulnerabilities
    - ✅ Review and resolve any security warnings
    - ❌ STOP if moderate or high security issues exist
 
-5. **Build Verification**: `npm run build`
+6. **Build Verification**: `npm run build`
    - ✅ MUST build successfully without errors
    - ✅ Verify all imports and dependencies resolve correctly
+   - ✅ Confirm unused imports were properly removed
    - ❌ STOP if build fails
 
 #### Quality Standards Enforcement
 - **All Checks Must Pass**: Every single quality check must complete successfully
 - **No Exceptions Rule**: Quality standards apply to ALL commits, regardless of urgency
+- **Automatic Formatting Required**: MUST run `npm run format` before every commit
+- **Unused Import Removal**: ESLint MUST automatically remove all unused imports and variables
 - **Documentation Updates**: Quality checks apply to documentation changes as well as code changes
 - **Incremental Commits**: Even small changes must pass all quality gates
+- **Code Cleanliness**: Zero tolerance for unused code, improper formatting, or style inconsistencies
 
 #### Quality Check Commands Reference
 ```bash
-# Complete quality check sequence (run in order)
-npm run type-check    # TypeScript type checking
-npm run lint          # ESLint with auto-fix
-npm run format:check  # Prettier formatting verification
-npm run format        # Apply Prettier formatting (if needed)
-npm run audit         # Security vulnerability audit
-npm run build         # Production build verification
+# Complete quality check sequence (MANDATORY - run in exact order)
+npm run format        # 1. Apply Prettier auto-formatting (WRITE MODE)
+npm run lint          # 2. ESLint auto-fix + unused import removal
+npm run type-check    # 3. TypeScript type checking
+npm run format:check  # 4. Verify formatting consistency
+npm run audit         # 5. Security vulnerability audit
+npm run build         # 6. Production build verification + import validation
+```
+
+#### One-Line Quality Check Command
+```bash
+# Execute complete quality sequence
+npm run format && npm run lint && npm run type-check && npm run format:check && npm run audit && npm run build
 ```
 
 #### Quality Failure Response Protocol
 1. **Stop Immediately**: Do not proceed with commit if any check fails
-2. **Fix Issues**: Address all errors, warnings, and formatting issues
-3. **Re-run Checks**: Execute failed checks again until they pass
-4. **Complete Sequence**: Run the entire quality check sequence from start
-5. **Only Then Commit**: Proceed with git commit only after ALL checks pass
+2. **Apply Auto-Fixes First**: Always run `npm run format` and `npm run lint` to auto-resolve issues
+3. **Manual Fix Remaining Issues**: Address any errors that cannot be auto-fixed
+4. **Re-run Complete Sequence**: Execute the entire 6-step quality check sequence from start
+5. **Verify Clean State**: Ensure no unused imports, formatting issues, or linting errors remain
+6. **Only Then Commit**: Proceed with git commit only after ALL checks pass completely
 
 ### CV Content Verification and Accuracy (CRITICAL)
 - **MANDATORY CV Verification**: ALL website content MUST be verified against `./public/cv-20250706.pdf` before any content changes
@@ -386,7 +405,7 @@ Full MD3 color system implemented with TailwindCSS integration:
 
 ⚠️ **CRITICAL REMINDER**: Before ANY content modification, ALWAYS verify against `./public/cv-20250706.pdf` using the `mcp__pdf-reader__read_pdf` tool. No exceptions.
 
-🚨 **MANDATORY PRE-COMMIT**: Before ANY git commit, MUST run ALL quality checks in sequence: `type-check` → `lint` → `format:check` → `audit` → `build`. Zero tolerance for quality issues.
+🚨 **MANDATORY PRE-COMMIT**: Before ANY git commit, MUST run ALL quality checks in sequence: `format` → `lint` → `type-check` → `format:check` → `audit` → `build`. Auto-formatting and unused import removal required.
 
 📊 **ANALYTICS NOTE**: For analytics implementation details, debugging, and event tracking guidance, see [ANALYTICS.md](./ANALYTICS.md).
 
