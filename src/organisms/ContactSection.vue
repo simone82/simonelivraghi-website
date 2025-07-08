@@ -87,6 +87,9 @@
                 size="lg"
                 :disabled="isSubmitting"
                 class="sm:w-auto"
+                tracking-section-id="contact"
+                tracking-button-id="clear-form"
+                tracking-button-text="Clear Form"
                 @click="resetForm"
               >
                 Clear Form
@@ -143,8 +146,10 @@ import BaseButton from '@/atoms/BaseButton.vue'
 import BrandLogo from '@/atoms/BrandLogo.vue'
 import { PERSONAL_INFO, CONTACT_FORM_CONFIG } from '@/config'
 import { handleFormError } from '@/utils/errorHandler'
+import { useCustomAnalytics } from '@/composables/useCustomAnalytics'
 
 const personalInfo = PERSONAL_INFO
+const { trackFormSubmit } = useCustomAnalytics()
 
 // Form state
 const form = reactive({
@@ -228,6 +233,9 @@ const handleSubmit = async () => {
     // We'll assume success if no error is thrown
     submitStatus.value = 'success'
     submitMessage.value = "Thank you for your message! I'll get back to you soon."
+
+    // Track form submission with GA4 standard event
+    trackFormSubmit('contact_form', 'contact')
 
     resetForm()
   } catch (error) {

@@ -1,6 +1,7 @@
 <template>
   <section
     id="experience"
+    v-track-section="'experience'"
     class="section bg-md-light-surface-container/30 dark:bg-md-dark-surface-container/30"
   >
     <div class="container">

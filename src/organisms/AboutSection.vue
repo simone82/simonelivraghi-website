@@ -1,6 +1,7 @@
 <template>
   <section
     id="about"
+    v-track-section="'about'"
     class="section bg-md-light-surface-container/30 dark:bg-md-dark-surface-container/30"
   >
     <div class="container">
@@ -51,8 +52,9 @@
                 :href="personalInfo.linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
-                tracking-label="View Full CV on LinkedIn"
-                tracking-section="about"
+                tracking-section-id="about"
+                tracking-button-id="linkedin-cv"
+                tracking-button-text="View Full CV on LinkedIn"
               >
                 View Full CV on LinkedIn
               </BaseButton>
@@ -61,8 +63,9 @@
                 tag="a"
                 href="/cv-20250706.pdf"
                 download="Simone_Livraghi_CV.pdf"
-                tracking-label="Download CV"
-                tracking-section="about"
+                tracking-section-id="about"
+                tracking-button-id="download-cv"
+                tracking-button-text="Download CV"
               >
                 Download CV
               </BaseButton>

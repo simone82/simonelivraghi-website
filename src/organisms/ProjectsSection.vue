@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="section">
+  <section id="projects" v-track-section="'projects'" class="section">
     <div class="container">
       <div class="max-w-6xl mx-auto">
         <h2

@@ -98,6 +98,27 @@ export const useCustomAnalytics = () => {
     })
   }
 
+  // Track form submission event (GA4 standard event)
+  const trackFormSubmit = (formName: string, sectionId?: string) => {
+    if (!isAnalyticsAvailable()) return
+
+    try {
+      // Use GA4 standard form_submit event
+      event('form_submit', {
+        form_name: formName,
+        custom_parameter_section_id: sectionId || undefined,
+      })
+
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`[Analytics] Form submit tracked: ${formName}`, { sectionId })
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        handleAnalyticsError(error)
+      }
+    }
+  }
+
   // Setup intersection observer for section tracking
   const observeSection = (element: HTMLElement, sectionId: string) => {
     if (!element || !sectionId) return
@@ -166,6 +187,7 @@ export const useCustomAnalytics = () => {
     trackSectionView,
     trackButtonView,
     trackButtonClick,
+    trackFormSubmit,
     observeSection,
     observeButton,
     cleanupObservers,

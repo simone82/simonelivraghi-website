@@ -1,5 +1,9 @@
 <template>
-  <section id="ai-coding" class="section bg-md-light-surface/50 dark:bg-md-dark-surface/50">
+  <section
+    id="ai-coding"
+    v-track-section="'ai-coding'"
+    class="section bg-md-light-surface/50 dark:bg-md-dark-surface/50"
+  >
     <div class="container">
       <div class="max-w-6xl mx-auto">
         <h2

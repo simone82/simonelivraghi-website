@@ -5,8 +5,6 @@
     :aria-label="themeToggleLabel"
     :title="themeToggleLabel"
     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg backdrop-blur-sm"
-    tracking-label="Theme Toggle"
-    tracking-section="ui"
     @click="toggleTheme"
   >
     <BaseIcon :icon="themeIcon" size="lg" aria-hidden="true" />

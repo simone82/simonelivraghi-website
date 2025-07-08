@@ -1,5 +1,5 @@
 <template>
-  <section id="certifications" class="section">
+  <section id="certifications" v-track-section="'certifications'" class="section">
     <div class="container">
       <div class="max-w-6xl mx-auto">
         <h2

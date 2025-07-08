@@ -75,6 +75,11 @@
         <div class="animate-slide-up delay-400">
           <div class="flex justify-center gap-6">
             <a
+              v-track-button="{
+                sectionId: 'hero',
+                buttonId: 'linkedin-social',
+                buttonText: 'LinkedIn Profile',
+              }"
               :href="personalInfo.linkedin"
               target="_blank"
               rel="noopener noreferrer"
@@ -85,6 +90,11 @@
               <span class="sr-only">LinkedIn</span>
             </a>
             <a
+              v-track-button="{
+                sectionId: 'hero',
+                buttonId: 'github-social',
+                buttonText: 'GitHub Profile',
+              }"
               :href="personalInfo.github"
               target="_blank"
               rel="noopener noreferrer"
