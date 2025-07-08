@@ -13,7 +13,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useAnalytics } from '@/composables/useAnalytics'
 
 interface Props {
   href: string
@@ -29,8 +28,6 @@ const emit = defineEmits<{
   navigate: [href: string]
 }>()
 
-const { trackNavigationClick } = useAnalytics()
-
 const linkClasses = computed(() => {
   const baseClasses =
     'relative px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 transform hover:scale-105 active:scale-95'
@@ -45,8 +42,6 @@ const linkClasses = computed(() => {
 })
 
 const handleClick = () => {
-  // Track navigation click
-  trackNavigationClick(props.label)
   emit('navigate', props.href)
 }
 </script>

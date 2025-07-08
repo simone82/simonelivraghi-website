@@ -4,6 +4,63 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Rules
 
+### Code Quality Assurance for Commits (CRITICAL)
+- **MANDATORY Quality Checks**: ALL commits MUST pass comprehensive quality checks before being committed to the repository
+- **Zero Tolerance for Quality Issues**: No code with linting errors, type errors, security vulnerabilities, or formatting issues should ever be committed
+- **Pre-Commit Quality Gate**: Every commit must demonstrate adherence to high quality standards through automated checks
+
+#### Pre-Commit Quality Checklist (MANDATORY PROCESS)
+**BEFORE ANY GIT COMMIT, ALWAYS RUN ALL QUALITY CHECKS IN THIS EXACT ORDER:**
+
+1. **Type Checking**: `npm run type-check`
+   - ✅ MUST pass without any TypeScript errors
+   - ✅ All type definitions must be correct and complete
+   - ❌ STOP if any type errors exist
+
+2. **Linting**: `npm run lint`
+   - ✅ MUST pass without any ESLint errors or warnings
+   - ✅ Code style must be consistent and follow project standards
+   - ❌ STOP if any linting errors exist
+
+3. **Code Formatting**: `npm run format:check`
+   - ✅ MUST pass Prettier formatting check
+   - ✅ If fails, run `npm run format` first, then recheck
+   - ❌ STOP if formatting is inconsistent
+
+4. **Security Audit**: `npm run audit`
+   - ✅ MUST pass security audit without moderate/high vulnerabilities
+   - ✅ Review and resolve any security warnings
+   - ❌ STOP if moderate or high security issues exist
+
+5. **Build Verification**: `npm run build`
+   - ✅ MUST build successfully without errors
+   - ✅ Verify all imports and dependencies resolve correctly
+   - ❌ STOP if build fails
+
+#### Quality Standards Enforcement
+- **All Checks Must Pass**: Every single quality check must complete successfully
+- **No Exceptions Rule**: Quality standards apply to ALL commits, regardless of urgency
+- **Documentation Updates**: Quality checks apply to documentation changes as well as code changes
+- **Incremental Commits**: Even small changes must pass all quality gates
+
+#### Quality Check Commands Reference
+```bash
+# Complete quality check sequence (run in order)
+npm run type-check    # TypeScript type checking
+npm run lint          # ESLint with auto-fix
+npm run format:check  # Prettier formatting verification
+npm run format        # Apply Prettier formatting (if needed)
+npm run audit         # Security vulnerability audit
+npm run build         # Production build verification
+```
+
+#### Quality Failure Response Protocol
+1. **Stop Immediately**: Do not proceed with commit if any check fails
+2. **Fix Issues**: Address all errors, warnings, and formatting issues
+3. **Re-run Checks**: Execute failed checks again until they pass
+4. **Complete Sequence**: Run the entire quality check sequence from start
+5. **Only Then Commit**: Proceed with git commit only after ALL checks pass
+
 ### CV Content Verification and Accuracy (CRITICAL)
 - **MANDATORY CV Verification**: ALL website content MUST be verified against `./public/cv-20250706.pdf` before any content changes
 - **100% Content Accuracy Requirement**: Every piece of professional information, experience, skill, achievement, certification, or personal detail on the website MUST match exactly what is documented in the CV
@@ -212,14 +269,26 @@ async function safeAsync<T>(
 - **Development vs Production**: Detailed errors in development, user-friendly in production
 - **Analytics Error Tracking**: Non-blocking error reporting to analytics when consent given
 
-## Analytics Implementation
+## Analytics Implementation (Simplified)
 
-For comprehensive analytics documentation, implementation details, and debugging guidance, please refer to **[ANALYTICS.md](./ANALYTICS.md)**. This includes:
-- Complete GA4 implementation architecture
-- GDPR compliance and privacy settings
-- Event tracking taxonomy and methods
-- Debugging and troubleshooting guide
-- Testing and maintenance procedures
+For analytics documentation and implementation details, please refer to **[ANALYTICS.md](./ANALYTICS.md)**. This includes:
+- Simplified GA4 implementation using **vue-gtag-next** library
+- GDPR compliance with consent-based initialization
+- Automatic page view tracking only (no custom events)
+- Testing and troubleshooting guide
+- Minimal maintenance approach
+
+### Key Features
+The analytics system is intentionally minimal:
+- **Vue-gtag library**: Handles all GA4 complexity
+- **GDPR compliant**: No tracking before explicit consent (`bootstrap: false`)
+- **Automatic tracking only**: Page views via router integration
+- **No manual events**: All custom tracking removed for simplicity
+- **Zero maintenance**: Library manages script loading and tracking
+
+Implementation files:
+- Plugin: `/src/plugins/gtag.ts`
+- Consent: `/src/composables/useCookieConsent.ts`
 
 ## Configuration Management
 
@@ -227,7 +296,7 @@ The project uses a centralized configuration system for maintainable settings:
 
 ### Configuration Structure
 - **Main Config**: `/src/config/index.ts` - Environment-dependent settings
-- **Google Analytics**: Tracking ID `G-3JB77ZVK7Z` with privacy settings (see ANALYTICS.md for details)
+- **Google Analytics**: Tracking ID `G-3JB77ZVK7Z` with privacy settings (simplified implementation)
 - **Contact Forms**: Google Forms integration URLs and field mappings
 - **Theme Settings**: Material Design 3 token configurations
 - **Build Settings**: Vite configuration with optimizations and path aliases
@@ -317,6 +386,8 @@ Full MD3 color system implemented with TailwindCSS integration:
 
 ⚠️ **CRITICAL REMINDER**: Before ANY content modification, ALWAYS verify against `./public/cv-20250706.pdf` using the `mcp__pdf-reader__read_pdf` tool. No exceptions.
 
+🚨 **MANDATORY PRE-COMMIT**: Before ANY git commit, MUST run ALL quality checks in sequence: `type-check` → `lint` → `format:check` → `audit` → `build`. Zero tolerance for quality issues.
+
 📊 **ANALYTICS NOTE**: For analytics implementation details, debugging, and event tracking guidance, see [ANALYTICS.md](./ANALYTICS.md).
 
 ```bash
@@ -346,6 +417,8 @@ npm run audit
 ```
 
 ## Git Commit Standards
+
+**MANDATORY QUALITY GATE**: Before ANY commit, ALL quality checks MUST pass (see "Code Quality Assurance for Commits" section above).
 
 **Always follow conventional commit message format** when committing changes:
 

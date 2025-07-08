@@ -35,10 +35,7 @@
 <script setup lang="ts">
 import ValueCard from '@/molecules/ValueCard.vue'
 import type { Value } from '@/types'
-import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
-
-const { trackSectionView } = useAnalytics()
 
 // Core values data from copywriter
 const values: Value[] = [
@@ -86,7 +83,5 @@ const values: Value[] = [
   },
 ]
 
-onMounted(() => {
-  trackSectionView('values')
-})
+onMounted(() => {})
 </script>

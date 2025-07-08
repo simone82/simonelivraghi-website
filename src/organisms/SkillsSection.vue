@@ -50,12 +50,7 @@
 
 <script setup lang="ts">
 import { skillCategories } from '@/data/skills'
-import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
 
-const { trackSectionView } = useAnalytics()
-
-onMounted(() => {
-  trackSectionView('skills')
-})
+onMounted(() => {})
 </script>

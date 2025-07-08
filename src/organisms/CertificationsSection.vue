@@ -63,10 +63,7 @@
 import EducationCard from '@/molecules/EducationCard.vue'
 import CertificationProvider from '@/molecules/CertificationProvider.vue'
 import type { Education, CertificationProvider as CertificationProviderType } from '@/types'
-import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
-
-const { trackSectionView } = useAnalytics()
 
 // Education data from CV
 const educationData: Education[] = [
@@ -283,7 +280,5 @@ const certificationProviders: CertificationProviderType[] = [
   },
 ]
 
-onMounted(() => {
-  trackSectionView('certifications')
-})
+onMounted(() => {})
 </script>

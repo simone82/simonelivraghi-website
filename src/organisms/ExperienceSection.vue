@@ -47,10 +47,7 @@
 <script setup lang="ts">
 import ExperienceItem from '@/molecules/ExperienceItem.vue'
 import type { Experience } from '@/types'
-import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
-
-const { trackSectionView } = useAnalytics()
 
 // Professional experience data from CV
 const experiences: Experience[] = [
@@ -285,7 +282,5 @@ const experiences: Experience[] = [
   },
 ]
 
-onMounted(() => {
-  trackSectionView('experience')
-})
+onMounted(() => {})
 </script>

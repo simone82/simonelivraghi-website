@@ -6,7 +6,6 @@
 // Analytics Configuration
 export const ANALYTICS_CONFIG = {
   googleAnalyticsId: 'G-3JB77ZVK7Z',
-  trackingEnabled: true,
   anonymizeIp: true,
   allowGoogleSignals: false,
 } as const
@@ -37,7 +36,7 @@ export const CONTACT_FORM_CONFIG = {
 
 // Cookie Consent Configuration
 export const COOKIE_CONFIG = {
-  consentKey: 'cookie-consent',
+  consentKey: 'slPortfolioCookieConsent',
   consentDuration: 365 * 24 * 60 * 60 * 1000, // 1 year in milliseconds
   categories: {
     necessary: true, // Always required

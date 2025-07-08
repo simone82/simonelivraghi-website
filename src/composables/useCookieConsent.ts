@@ -1,7 +1,7 @@
-import { ref, computed, watch } from 'vue'
-import { COOKIE_CONFIG, ANALYTICS_CONFIG } from '@/config'
-import { handleStorageError, safeAsync } from '@/utils/errorHandler'
-import type { Gtag } from '@/types/gtag'
+import { ref, computed } from 'vue'
+import { addGtag, optOut, optIn } from 'vue-gtag'
+import { COOKIE_CONFIG } from '@/config'
+import { handleStorageError } from '@/utils/errorHandler'
 
 export interface CookiePreferences {
   necessary: boolean
@@ -73,57 +73,20 @@ const saveConsent = (state: ConsentState) => {
   }
 }
 
-// Initialize consent state
+// Initialize consent state and analytics if already consented
 if (typeof window !== 'undefined') {
   consentState.value = loadConsent()
   showBanner.value = !consentState.value.hasConsented
-}
 
-// Watch for consent changes and trigger analytics loading
-watch(
-  () => consentState.value.preferences.analytics,
-  newValue => {
-    if (newValue && consentState.value.hasConsented) {
-      loadGoogleAnalytics()
-    }
-  }
-)
-
-// Load Google Analytics script dynamically
-const loadGoogleAnalytics = () => {
-  if (typeof window === 'undefined') return
-
-  // Check if already loaded
-  if (typeof window.gtag === 'function') return
-
-  safeAsync(
-    async () => {
-      // Create and append script
-      const script = document.createElement('script')
-      script.async = true
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONFIG.googleAnalyticsId}`
-
-      return new Promise<void>((resolve, reject) => {
-        script.onload = () => {
-          window.dataLayer = window.dataLayer || []
-          window.gtag = function (...args: unknown[]) {
-            window.dataLayer.push(args)
-          } as Gtag
-          window.gtag('js', new Date())
-          window.gtag('config', ANALYTICS_CONFIG.googleAnalyticsId, {
-            anonymize_ip: ANALYTICS_CONFIG.anonymizeIp,
-            allow_google_signals: ANALYTICS_CONFIG.allowGoogleSignals,
-          })
-          resolve()
-        }
-
-        script.onerror = () => reject(new Error('Failed to load Google Analytics script'))
-        document.head.appendChild(script)
+  // If user has already consented to analytics, initialize it
+  if (consentState.value.hasConsented && consentState.value.preferences.analytics) {
+    // Small delay to ensure vue-gtag is ready
+    setTimeout(() => {
+      addGtag().catch(() => {
+        // Silent fail - analytics not critical
       })
-    },
-    'Failed to load Google Analytics',
-    'ANALYTICS_LOADING'
-  )
+    }, 100)
+  }
 }
 
 export const useCookieConsent = () => {
@@ -142,6 +105,11 @@ export const useCookieConsent = () => {
     saveConsent(consentState.value)
     showBanner.value = false
     showPreferences.value = false
+
+    // Initialize Google Analytics via vue-gtag
+    addGtag().catch(() => {
+      // Silent fail - analytics not critical
+    })
   }
 
   // Accept only necessary cookies
@@ -159,10 +127,16 @@ export const useCookieConsent = () => {
     saveConsent(consentState.value)
     showBanner.value = false
     showPreferences.value = false
+
+    // Opt-out of analytics if it was previously enabled
+    optOut()
   }
 
   // Save custom preferences
   const savePreferences = (preferences: CookiePreferences) => {
+    const wasAnalyticsEnabled = consentState.value.preferences.analytics
+    const willEnableAnalytics = preferences.analytics
+
     consentState.value = {
       hasConsented: true,
       preferences: {
@@ -174,6 +148,20 @@ export const useCookieConsent = () => {
     saveConsent(consentState.value)
     showBanner.value = false
     showPreferences.value = false
+
+    // Handle analytics state change
+    if (!wasAnalyticsEnabled && willEnableAnalytics) {
+      // Enable analytics
+      addGtag().catch(() => {
+        // Silent fail
+      })
+    } else if (wasAnalyticsEnabled && !willEnableAnalytics) {
+      // Disable analytics
+      optOut()
+    } else if (wasAnalyticsEnabled && willEnableAnalytics) {
+      // Re-enable analytics (in case it was previously opted out)
+      optIn()
+    }
   }
 
   // Revoke consent
@@ -182,10 +170,8 @@ export const useCookieConsent = () => {
     localStorage.removeItem(CONSENT_KEY)
     showBanner.value = true
 
-    // Reload page to remove any loaded scripts
-    if (typeof window !== 'undefined') {
-      window.location.reload()
-    }
+    // Opt-out of analytics
+    optOut()
   }
 
   // Open preferences modal

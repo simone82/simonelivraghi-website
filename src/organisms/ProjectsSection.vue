@@ -32,10 +32,7 @@
 <script setup lang="ts">
 import ProjectCard from '@/molecules/ProjectCard.vue'
 import type { Project } from '@/types'
-import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
-
-const { trackSectionView } = useAnalytics()
 
 // Featured projects extracted from career experience
 const projects: Project[] = [
@@ -183,7 +180,5 @@ const projects: Project[] = [
   },
 ]
 
-onMounted(() => {
-  trackSectionView('projects')
-})
+onMounted(() => {})
 </script>

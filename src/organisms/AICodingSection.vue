@@ -211,12 +211,7 @@
 
 <script setup lang="ts">
 import BaseCard from '@/atoms/BaseCard.vue'
-import { useAnalytics } from '@/composables/useAnalytics'
 import { onMounted } from 'vue'
 
-const { trackSectionView } = useAnalytics()
-
-onMounted(() => {
-  trackSectionView('ai-coding')
-})
+onMounted(() => {})
 </script>
