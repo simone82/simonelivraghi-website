@@ -78,6 +78,11 @@
     @apply outline-2 outline-offset-2 outline-md-light-primary;
     @apply dark:outline-md-dark-primary;
   }
+
+  /* Strong text styling for better visibility */
+  strong {
+    @apply font-bold text-md-light-primary dark:text-md-dark-primary;
+  }
 }
 
 @layer components {

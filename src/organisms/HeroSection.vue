@@ -110,8 +110,8 @@
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-gentle">
-      <ScrollIndicator size="xl" aria-label="Scroll down to learn more" @click="scrollToAbout" />
+    <div class="absolute bottom-8 left-1/2 animate-bounce-gentle z-20">
+      <ScrollIndicator size="md" aria-label="Scroll down to learn more" @click="scrollToAbout" />
     </div>
   </section>
 </template>

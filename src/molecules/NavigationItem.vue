@@ -30,7 +30,7 @@ const emit = defineEmits<{
 
 const linkClasses = computed(() => {
   const baseClasses =
-    'relative px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 transform hover:scale-105 active:scale-95'
+    'relative px-4 py-2 md:py-2 text-sm font-medium rounded-md transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px] flex items-center md:min-h-0'
   const colorClasses = props.isActive
     ? 'text-md-light-primary dark:text-md-dark-primary'
     : 'text-md-light-on-surface dark:text-md-dark-on-surface hover:text-md-light-primary dark:hover:text-md-dark-primary'
