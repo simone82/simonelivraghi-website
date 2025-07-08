@@ -159,6 +159,11 @@ export const useCustomAnalytics = () => {
       entries => {
         entries.forEach(entry => {
           if (process.env.NODE_ENV === 'development') {
+            const shouldTrack =
+              entry.isIntersecting &&
+              (entry.intersectionRatio >= 0.2 ||
+                (entry.boundingClientRect.height > 800 && entry.intersectionRect.height >= 300))
+
             console.log(`[Analytics] Section intersection: ${sectionId}`, {
               isIntersecting: entry.isIntersecting,
               intersectionRatio: entry.intersectionRatio,
@@ -167,17 +172,30 @@ export const useCustomAnalytics = () => {
                 top: entry.boundingClientRect.top,
                 bottom: entry.boundingClientRect.bottom,
               },
+              intersectionRect: {
+                height: entry.intersectionRect.height,
+              },
               rootBounds: entry.rootBounds
                 ? {
                     height: entry.rootBounds.height,
                   }
                 : null,
-              willTrack: entry.isIntersecting && entry.intersectionRatio >= 0.3,
+              isTallSection: entry.boundingClientRect.height > 800,
+              visiblePixels: entry.intersectionRect.height,
+              willTrack: shouldTrack,
             })
           }
 
-          // Check if at least 30% of the section is visible (reduced from 50% for better tracking)
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+          // For tall sections (min-h-screen), use more lenient tracking
+          // Check if section is intersecting and either:
+          // 1. At least 20% is visible, OR
+          // 2. At least 300px of the section is visible (for very tall sections)
+          const shouldTrack =
+            entry.isIntersecting &&
+            (entry.intersectionRatio >= 0.2 ||
+              (entry.boundingClientRect.height > 800 && entry.intersectionRect.height >= 300))
+
+          if (shouldTrack) {
             trackSectionView(sectionId)
           }
         })
