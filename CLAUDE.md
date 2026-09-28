@@ -370,20 +370,20 @@ This is a personal portfolio website for Simone Livraghi, an AI Systems Engineer
 - **Styling**: TailwindCSS 3.4.16 with Material Design 3 tokens
 - **Build Tool**: Vite 6.0.5 with Vue plugin
 - **State Management**: Pinia 2.3.0 for centralized state
-- **Routing**: Vue Router 4.5.0 with hash-based navigation
-- **SEO**: @vueuse/head for meta tag management
+- **Routing**: Vue Router 4.5.0 with HTML5 history mode (nginx falls back to index.html)
+- **SEO**: @unhead/vue for meta tag management
 - **Font**: JetBrains Mono from Google Fonts
 - **Icons**: Official brand logos and SVG assets
 
 ### Production Features Implemented
-- **Navigation**: Vue Router with hash-based navigation, smooth scroll, active section highlighting
+- **Navigation**: Vue Router with HTML5 history mode (nginx falls back to index.html), smooth scroll, active section highlighting
 - **Sections**: Home (hero), About, Skills, Experience, Projects, Certifications, Values, Contact - all complete with real content
 - **Theme System**: Auto/light/dark mode with Material Design 3 tokens and system preference detection
 - **GDPR Compliance**: Cookie consent management with analytics loading only after consent
 - **Analytics**: Google Analytics 4 integration with privacy-focused configuration
 - **Contact Integration**: Functional Google Forms integration with real contact form
 - **Professional Assets**: Real CV, profile photo, official brand logos (LinkedIn, GitHub, Gmail)
-- **SEO & Accessibility**: @vueuse/head for meta management, structured data, WCAG 2.1 AA compliance
+- **SEO & Accessibility**: @unhead/vue for meta management, structured data, WCAG 2.1 AA compliance
 - **Error Handling**: Type-safe error management with centralized error handling architecture
 - **Performance**: Optimized Vite build, TailwindCSS purging, font preloading
 

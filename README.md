@@ -46,7 +46,7 @@ When you practice context engineering, you aren't just helping an AI assistant w
 - **8 Comprehensive Sections**: Home, About, Skills, Experience, Projects, Certifications, Values, Contact
 - **Auto/Light/Dark Mode** with system preference detection and Material Design 3 theming
 - **Fully Responsive** design with TailwindCSS utility classes
-- **SEO Optimized** with @vueuse/head, meta tags, and structured data
+- **SEO Optimized** with @unhead/vue, meta tags, and structured data
 - **GDPR Compliant** with comprehensive cookie consent management
 - **Google Analytics 4** integration with privacy-focused configuration
 - **Accessible** - WCAG 2.1 AA compliant with semantic HTML
@@ -61,8 +61,8 @@ When you practice context engineering, you aren't just helping an AI assistant w
 - **Styling**: TailwindCSS 3.4.16 with Material Design 3 tokens
 - **Build Tool**: Vite 6.0.5 with Vue plugin and production optimizations
 - **State Management**: Pinia 2.3.0 for centralized state
-- **Routing**: Vue Router 4.5.0 with hash-based navigation
-- **SEO**: @vueuse/head for meta tag management
+- **Routing**: Vue Router 4.5.0 with HTML5 history mode (nginx falls back to index.html)
+- **SEO**: @unhead/vue for meta tag management
 - **Font**: JetBrains Mono from Google Fonts
 - **Icons**: Official brand logos and SVG assets
 
