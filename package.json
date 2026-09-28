@@ -17,7 +17,7 @@
     "analyze": "npx vite-bundle-analyzer dist/stats.html"
   },
   "dependencies": {
-    "@vueuse/head": "^0.9.8",
+    "@unhead/vue": "^3.4.1",
     "pinia": "^2.3.0",
     "vue": "^3.5.12",
     "vue-gtag": "^3.5.1",
