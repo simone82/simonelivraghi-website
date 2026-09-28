@@ -16,20 +16,11 @@ export default defineConfig(({ mode }) => {
           gzipSize: true,
           brotliSize: true,
         }),
-      // Compression plugins for production
+      // Precompressed gzip and brotli assets for production
       mode === 'production' &&
         compression({
-          algorithm: 'gzip',
-          ext: '.gz',
+          algorithms: ['gzip', 'brotliCompress'],
           threshold: 1024,
-          deleteOriginFile: false,
-        }),
-      mode === 'production' &&
-        compression({
-          algorithm: 'brotliCompress',
-          ext: '.br',
-          threshold: 1024,
-          deleteOriginFile: false,
         }),
     ].filter(Boolean),
 
@@ -66,7 +57,7 @@ export default defineConfig(({ mode }) => {
           // Manual chunk splitting for better caching
           manualChunks: {
             vendor: ['vue', 'vue-router', 'pinia'],
-            vueuse: ['@vueuse/head'],
+            head: ['@unhead/vue'],
           },
 
           // Optimize asset naming for caching
@@ -117,7 +108,7 @@ export default defineConfig(({ mode }) => {
 
     // Optimization for different environments
     optimizeDeps: {
-      include: ['vue', 'vue-router', 'pinia', '@vueuse/head'],
+      include: ['vue', 'vue-router', 'pinia', '@unhead/vue'],
       exclude: ['@vitejs/plugin-vue'],
     },
 
