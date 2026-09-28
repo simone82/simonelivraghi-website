@@ -376,7 +376,7 @@ This is a personal portfolio website for Simone Livraghi, an AI Systems Engineer
 - **Icons**: Official brand logos and SVG assets
 
 ### Production Features Implemented
-- **Navigation**: Vue Router with HTML5 history mode (nginx falls back to index.html), smooth scroll, active section highlighting
+- **Navigation**: Vue Router (HTML5 history mode) with #section anchors, smooth scroll, active section highlighting
 - **Sections**: Home (hero), About, Skills, Experience, Projects, Certifications, Values, Contact - all complete with real content
 - **Theme System**: Auto/light/dark mode with Material Design 3 tokens and system preference detection
 - **GDPR Compliance**: Cookie consent management with analytics loading only after consent
